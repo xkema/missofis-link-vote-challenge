@@ -11,7 +11,7 @@
 		.run( runApp );
 
 	configApp.$inject = [ '$locationProvider', '$routeProvider' ];
-	runApp.$inject = [];
+	runApp.$inject = [ 'LinkVoteChallengeService' ];
 
 	/**
 	 * app config block
@@ -42,7 +42,9 @@
 	/**
 	 * app run block
 	 */
-	function runApp() {
+	function runApp( LinkVoteChallengeService ) {
+
+		LinkVoteChallengeService.initAppData();
 
 	}
 

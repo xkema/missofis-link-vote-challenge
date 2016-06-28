@@ -17,7 +17,7 @@ Notes
 ----
 
 * mock data fetched from https://api.producthunt.com/v1/docs/posts/posts_index_get_the_tech_posts_of_today
-* User Firefox browser to alter Chrome's CORS error. (hrome browser block XHR calls from `file://` urls which is used by AngularJS frequently:)
+* User Firefox browser to get rid of Chrome's CORS error. (hrome browser block XHR calls from `file://` urls which is used by AngularJS frequently:)
 * Users jpapa styleguide
 * No specs for add item page?
 * Unit Test for which parts?

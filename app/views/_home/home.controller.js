@@ -9,12 +9,12 @@
 		.module( 'com.hepsiburada.linkvotechallenge' )
 		.controller( 'HomeCtrl', HomeCtrl );
 
-	HomeCtrl.$inject = [ '$log' ];
+	HomeCtrl.$inject = [ '$log', 'LinkVoteChallengeService' ];
 
 	/**
 	 * Home controller
 	 */
-	function HomeCtrl( $log ) {
+	function HomeCtrl( $log, LinkVoteChallengeService ) {
 
 		var vm = this;
 
@@ -25,7 +25,7 @@
 		*/
 		
 		// controller bindables
-		// vm.sth = null;
+		vm.links = null;
 
 		// controller api
 		// vm.sthFn = _sthFn;
@@ -52,6 +52,14 @@
 			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'HomeCtrl' );
 
 			// _sthFn();
+
+			/*
+			LinkVoteChallengeService
+				.getMockItemsData()
+				.then( function( response ) {
+					$log.debug( response );
+				} );
+			*/
 
 		}
 
