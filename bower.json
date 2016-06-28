@@ -1,0 +1,22 @@
+{
+  "name": "hb-link-vote-challenge",
+  "authors": [
+    "Kemal Yılmaz <kemalxyz@gmail.com>"
+  ],
+  "description": "hb-link-vote-challenge\r ====",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7"
+  }
+}

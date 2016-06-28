@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="com.hepsiburada.linkvotechallenge" ng-strict-di>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<title>hb-link-vote-challenge</title>
+	<meta name="description" content="hb-link-vote-challenge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- vendor scripts -->
+	<script src="../bower_components/angular/angular.min.js"></script>
+	<script src="../bower_components/angular-route/angular-route.js"></script>
+</head>
+<body>
+
+	<!-- app main wrapper -->
+	<div id="lvc-app-wrapper">
+
+		<header>
+			<p>app header</p>
+			<nav>
+				<a href="#!/">home</a>
+				<a href="#!/add">add</a>
+			</nav>
+			<hr>
+		</header>
+
+		<!-- app views -->
+		<div ng-view></div>
+		
+		<footer>
+			<hr>
+			<p>app footer</p>
+		</footer>
+		
+	</div>
+	
+	<!-- application main module -->
+	<script src="core/app.module.js"></script>
+	<script src="core/app.config.js"></script>
+
+	<!-- home module -->
+	<script src="views/_home/home.controller.js"></script>
+	<!-- add module -->
+	<script src="views/_add/add.controller.js"></script>
+
+</body>
+</html>

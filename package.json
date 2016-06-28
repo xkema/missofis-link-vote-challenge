@@ -1,0 +1,11 @@
+{
+  "name": "hb-link-vote-challenge",
+  "version": "1.0.0",
+  "description": "hb-link-vote-challenge\r ====",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kemal Yılmaz <kemalxyz@gmail.com>",
+  "license": "MIT"
+}
