@@ -28,7 +28,10 @@
 		vm.links = null;
 
 		// controller api
-		// vm.sthFn = _sthFn;
+		vm.sortItems = _sortItems;
+		vm.upVote = _upVote;
+		vm.downVote = _downVote;
+		vm.getAppData = _getAppData;
 
 		// initialize controller
 		_init();
@@ -39,27 +42,54 @@
 		----------------------------------------------------------------
 		*/
 
-		// sth
-		/*
-		function _sthFn() {			
+		// @param Array items, @param Boolean reversed 
+		function _sortItems( items, dateOnly, reversed ) {
+
+			var _reverser = 1;
+			
+			if( reversed ) {
+				_reverser = -1;
+			}
+
+			return items.sort( function( a, b ) {
+				if( dateOnly ) {
+					return _reverser * ( Date.parse( b.created_at ) - Date.parse( a.created_at ) );
+				}
+				else {
+					return _reverser * ( b.votes_count - a.votes_count ) || _reverser * ( Date.parse( b.created_at ) - Date.parse( a.created_at ) ); // b.votes_count - a.votes_count is falsy for equality, check date in this case
+				}
+			} );
 
 		}
-		*/
+
+		// votes up
+		function _upVote( item ) {
+
+			item.votes_count++;
+
+		}
+
+		// votes down
+		function _downVote( item ) {
+
+			item.votes_count--;
+
+		}
+
+		// read initial items from localstorage
+		function _getAppData() {
+
+			var _appData = LinkVoteChallengeService.getAppData();
+			return _appData;
+
+		}
 
 		// controller initialize
 		function _init() {
 
 			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'HomeCtrl' );
 
-			// _sthFn();
-
-			/*
-			LinkVoteChallengeService
-				.getMockItemsData()
-				.then( function( response ) {
-					$log.debug( response );
-				} );
-			*/
+			// vm.links = _getAppData();
 
 		}
 
