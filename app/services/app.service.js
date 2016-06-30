@@ -22,7 +22,9 @@
 			// services
 			getMockItemsData: _getMockItemsData,
 			addItem: _addItem,
-			removeItem: _removeItem,			
+			removeItem: _removeItem,
+			upVoteItem: _upVoteItem,
+			downVoteItem: _downVoteItem,
 			// utilities
 			initAppData: _initAppData,
 			getAppData: _getAppData,
@@ -65,6 +67,26 @@
 		function _removeItem( item ) {
 
 			$localStorage.hblinkvotechallenge.items.splice( $localStorage.hblinkvotechallenge.items.indexOf( item ), 1 );
+
+		}
+
+		/**
+		 * Increase item votes count
+		 */
+		function _upVoteItem( item ) {
+
+			$localStorage.hblinkvotechallenge.items[ $localStorage.hblinkvotechallenge.items.indexOf( item ) ].votes_count++;
+			// item.votes_count++ does the same because $localStorage lib watches and syncs storage object with corresponsing scope object
+
+		}
+
+		/**
+		 * Decrease item votes count
+		 */
+		function _downVoteItem( item ) {
+
+			$localStorage.hblinkvotechallenge.items[ $localStorage.hblinkvotechallenge.items.indexOf( item ) ].votes_count--;
+			// item.votes_count-- does the same because $localStorage lib watches and syncs storage object with corresponsing scope object
 
 		}	
 

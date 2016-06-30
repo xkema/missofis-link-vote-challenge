@@ -1,11 +1,19 @@
 <h1>home</h1>
 <ol>
 	<li ng-repeat="link in vm.links">
-		<p><strong>name</strong>: {{link.name}}</p>
 		<p>
-			<form ng-submit="vm.removeLink(link)">
-				<button type="submit">REMOVE</button>
-			</form>
+			<u><strong>name</strong></u>: {{link.name}}
+			<u><strong>votes</strong></u>: {{link.votes_count}}
+			<u><strong>id</strong></u>: {{link.id}}
+			<u><strong>created_at</strong></u>: {{link.created_at | date: 'yyyy-MM-dd HH:mm:ss'}}
+			<u><strong>link</strong></u>: {{link.redirect_url}}
+		</p>
+		<p>
+			<button type="button" ng-click="vm.removeLink(link)">remove</button>
+		</p>
+		<p>
+			<button type="button" ng-click="vm.downVote(link)">downvote</button>
+			<button type="button" ng-click="vm.upVote(link)">upvote</button>
 		</p>
 	</li>
 </ol>

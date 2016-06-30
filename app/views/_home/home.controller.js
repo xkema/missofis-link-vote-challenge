@@ -64,16 +64,18 @@
 		}
 
 		// votes up
-		function _upVote( item ) {
+		function _upVote( item ) {debugger;
 
-			item.votes_count++;
+			LinkVoteChallengeService.upVoteItem( item );
+			_sortItems( vm.links, false, false );
 
 		}
 
 		// votes down
-		function _downVote( item ) {
+		function _downVote( item ) {debugger;
 
-			item.votes_count--;
+			LinkVoteChallengeService.downVoteItem( item );
+			_sortItems( vm.links, false, false );
 
 		}
 
