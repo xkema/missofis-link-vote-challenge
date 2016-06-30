@@ -1,1 +1,11 @@
 <h1>home</h1>
+<ol>
+	<li ng-repeat="link in vm.links">
+		<p><strong>name</strong>: {{link.name}}</p>
+		<p>
+			<form ng-submit="vm.removeLink(link)">
+				<button type="submit">REMOVE</button>
+			</form>
+		</p>
+	</li>
+</ol>

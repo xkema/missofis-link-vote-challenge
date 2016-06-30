@@ -32,6 +32,7 @@
 		vm.upVote = _upVote;
 		vm.downVote = _downVote;
 		vm.getAppData = _getAppData;
+		vm.removeLink = _removeLink;
 
 		// initialize controller
 		_init();
@@ -84,12 +85,20 @@
 
 		}
 
+		// remove link
+		function _removeLink( item ) {
+
+			// add single item to storage
+			LinkVoteChallengeService.removeItem( item );
+
+		}
+
 		// controller initialize
 		function _init() {
 
 			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'HomeCtrl' );
 
-			// vm.links = _getAppData();
+			vm.links = _getAppData().items;
 
 		}
 

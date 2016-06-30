@@ -21,6 +21,8 @@
 
 			// services
 			getMockItemsData: _getMockItemsData,
+			addItem: _addItem,
+			removeItem: _removeItem,			
 			// utilities
 			initAppData: _initAppData,
 			getAppData: _getAppData,
@@ -48,6 +50,24 @@
 
 		}
 
+		/**
+		 * Add item to storage object
+		 */
+		function _addItem( item ) {
+
+			$localStorage.hblinkvotechallenge.items.unshift( item );
+
+		}
+
+		/**
+		 * Remove item from storage
+		 */
+		function _removeItem( item ) {
+
+			$localStorage.hblinkvotechallenge.items.splice( $localStorage.hblinkvotechallenge.items.indexOf( item ), 1 );
+
+		}	
+
 		/*
 		----------------------------------------------------------------
 		LinkVoteChallenge Utilities
@@ -61,7 +81,7 @@
 
 			$localStorage.hblinkvotechallenge = $localStorage.hblinkvotechallenge || {
 
-				items: null,
+				items: [],
 				userCheated: false
 
 			};
@@ -88,7 +108,7 @@
 			$localStorage.hblinkvotechallenge = $localStorage.hblinkvotechallenge || {};
 
 			if( items ) {
-				$localStorage.hblinkvotechallenge.items = items;
+				$localStorage.hblinkvotechallenge.items = $localStorage.hblinkvotechallenge.items.concat( items );
 			}
 			if( userCheated ) {
 				$localStorage.hblinkvotechallenge.userCheated = userCheated;
