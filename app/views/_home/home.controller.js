@@ -77,7 +77,11 @@
 
 			var _item = LinkVoteChallengeService.upVoteItem( item );
 			vm.links[ index ] = _item;
-			// vm.sortItemsByVoteCount( _appData.items, false );
+			// re-sort items if list is not ordered default order (by creation date)
+			if( '' !== vm.listOrder ) {
+				var isReversed = 'increasing' === vm.listOrder ? true : false;
+				vm.sortItemsByVoteCount( _appData.items, isReversed );
+			}
 
 		}
 
@@ -86,7 +90,11 @@
 
 			var _item = LinkVoteChallengeService.downVoteItem( item );
 			vm.links[ index ] = _item;
-			// vm.sortItemsByVoteCount( _appData.items, false );
+			// re-sort items if list is not ordered default order (by creation date)
+			if( '' !== vm.listOrder ) {
+				var isReversed = 'increasing' === vm.listOrder ? true : false;
+				vm.sortItemsByVoteCount( _appData.items, isReversed );
+			}
 
 		}
 

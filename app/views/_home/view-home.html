@@ -1,3 +1,8 @@
+<style type="text/css">
+	body {
+		font-size: 12px;
+	}
+</style>
 <h1>home</h1>
 <p>#links: {{vm.links.length | number}}</p>
 
@@ -6,13 +11,13 @@
 </div>
 <div ng-hide="0===vm.links.length">
 	<select ng-model="vm.listOrder" ng-change="vm.changeOrder()">
-		<option value="">Order by</option>
+		<option value="">Order by (creation date)</option>
 		<option value="decreasing">most voted z > a</option>
 		<option value="increasing">less voted a > z</option>
 	</select>
 </div>
 <ol>
-	<li ng-repeat="link in vm.links">
+	<li ng-repeat="link in vm.links" style="border:1px solid #ccc;margin-bottom:10px;padding:0px 10px;">
 		<p>		
 			<u><strong>name</strong></u>: {{link.name}} <br>
 			<u><strong>votes</strong></u>: {{link.votes_count}} <br>
