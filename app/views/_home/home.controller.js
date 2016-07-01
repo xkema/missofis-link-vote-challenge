@@ -26,13 +26,19 @@
 		
 		// controller bindables
 		vm.links = null;
+		vm.listOrder = '';
 
 		// controller api
-		vm.sortItems = _sortItems;
+		vm.sortItemsByCreationDate = _sortItemsByCreationDate;
+		vm.sortItemsByVoteCount = _sortItemsByVoteCount;
 		vm.upVote = _upVote;
 		vm.downVote = _downVote;
 		vm.getAppData = _getAppData;
 		vm.removeLink = _removeLink;
+		vm.changeOrder = _changeOrder;
+
+		// internals
+		var _appData = null;
 
 		// initialize controller
 		_init();
@@ -43,55 +49,83 @@
 		----------------------------------------------------------------
 		*/
 
-		// @param Array items, @param Boolean reversed 
-		function _sortItems( items, dateOnly, reversed ) {
+		// sort items by date, @param Array items, @param Boolean reversed
+		// newest first is default behaviour (non-reversed)
+		function _sortItemsByCreationDate( items, reversed ) {
 
-			var _reverser = 1;
+			reversed = reversed ? -1 : 1;
 			
-			if( reversed ) {
-				_reverser = -1;
-			}
+			return items.sort( function( a, b ) {
+				return reversed * ( Date.parse( b.created_at ) - Date.parse( a.created_at ) );
+			} );
+
+		}
+
+		// sort items by vote count (checks date for equality), @param Array items, @param Boolean reversed
+		function _sortItemsByVoteCount( items, reversed ) {
+
+			reversed = reversed ? -1 : 1;
 
 			return items.sort( function( a, b ) {
-				if( dateOnly ) {
-					return _reverser * ( Date.parse( b.created_at ) - Date.parse( a.created_at ) );
-				}
-				else {
-					return _reverser * ( b.votes_count - a.votes_count ) || _reverser * ( Date.parse( b.created_at ) - Date.parse( a.created_at ) ); // b.votes_count - a.votes_count is falsy for equality, check date in this case
-				}
+				return reversed * ( b.votes_count - a.votes_count ) || reversed * ( Date.parse( b.last_voted_at ) - Date.parse( a.last_voted_at ) ); // b.votes_count - a.votes_count is falsy for equality, check date in this case
 			} );
 
 		}
 
 		// votes up
-		function _upVote( item ) {debugger;
+		function _upVote( item, index ) {
 
-			LinkVoteChallengeService.upVoteItem( item );
-			_sortItems( vm.links, false, false );
+			var _item = LinkVoteChallengeService.upVoteItem( item );
+			vm.links[ index ] = _item;
+			// vm.sortItemsByVoteCount( _appData.items, false );
 
 		}
 
 		// votes down
-		function _downVote( item ) {debugger;
+		function _downVote( item, index ) {
 
-			LinkVoteChallengeService.downVoteItem( item );
-			_sortItems( vm.links, false, false );
+			var _item = LinkVoteChallengeService.downVoteItem( item );
+			vm.links[ index ] = _item;
+			// vm.sortItemsByVoteCount( _appData.items, false );
 
 		}
 
-		// read initial items from localstorage
+		// read initial items from storage
 		function _getAppData() {
 
-			var _appData = LinkVoteChallengeService.getAppData();
-			return _appData;
+			return LinkVoteChallengeService.getAppData();
 
 		}
 
 		// remove link
-		function _removeLink( item ) {
+		function _removeLink( item, index ) {
 
-			// add single item to storage
-			LinkVoteChallengeService.removeItem( item );
+			// remove link from storage
+			var _itemRemoved = LinkVoteChallengeService.removeItem( item );
+
+			// show toast
+			if( _itemRemoved ) {
+
+				vm.links.splice( index, 1 );
+
+				$log.info( '++____ :: Item removed, show toaster!' );
+
+			}
+
+		}
+
+		// list order
+		function _changeOrder() {
+
+			if( '' === vm.listOrder ) {
+				_sortItemsByCreationDate( _appData.items, false );				
+			}
+			else if( 'decreasing' === vm.listOrder ) {
+				_sortItemsByVoteCount( _appData.items, false );
+			}
+			else if( 'increasing' === vm.listOrder ) {
+				_sortItemsByVoteCount( _appData.items, true );
+			}
 
 		}
 
@@ -100,7 +134,9 @@
 
 			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'HomeCtrl' );
 
-			vm.links = _getAppData().items;
+			_appData = _getAppData();
+
+			vm.links = _sortItemsByCreationDate( _appData.items, false );
 
 		}
 

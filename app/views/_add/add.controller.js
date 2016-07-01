@@ -74,10 +74,11 @@
 			LinkVoteChallengeService
 				.getMockItemsData()
 				.then( function( response ) {
-					LinkVoteChallengeService
-						.setAppData( response.data.posts, true );
+
+					LinkVoteChallengeService.setAppData( { items: response.data.posts, userCheated: true }, false );
+
 					vm.isUserCheated = true;
-					// $location.path( '/' );
+					
 				} );
 
 		}	

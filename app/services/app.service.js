@@ -66,17 +66,46 @@
 		 */
 		function _removeItem( item ) {
 
-			$localStorage.hblinkvotechallenge.items.splice( $localStorage.hblinkvotechallenge.items.indexOf( item ), 1 );
+			var _appData = _getAppData();
+
+			// originally a service query w|itemId :)
+			_appData.items.forEach( function( currentValue, index ) {
+				if( item.id === currentValue.id ) {
+					_appData.items.splice( index, 1 );
+				}
+			} );
+
+			_setAppData( { items: _appData.items }, true );
+
+			return true;
 
 		}
 
 		/**
 		 * Increase item votes count
+		 * 
+		 * @return Updated item
 		 */
 		function _upVoteItem( item ) {
 
-			$localStorage.hblinkvotechallenge.items[ $localStorage.hblinkvotechallenge.items.indexOf( item ) ].votes_count++;
-			// item.votes_count++ does the same because $localStorage lib watches and syncs storage object with corresponsing scope object
+			var _appData = _getAppData();
+
+			var _item = null;
+
+			// originally a service query w|itemId :)
+			_appData.items.forEach( function( currentValue, index ) {
+				if( item.id === currentValue.id ) {
+					currentValue.votes_count++;
+					currentValue.current_user_voted = true;
+					currentValue.last_voted_at = new Date();
+					// set modified item to return
+					_item = currentValue;
+				}
+			} );
+
+			_setAppData( { items: _appData.items }, true );
+
+			return _item;
 
 		}
 
@@ -85,8 +114,24 @@
 		 */
 		function _downVoteItem( item ) {
 
-			$localStorage.hblinkvotechallenge.items[ $localStorage.hblinkvotechallenge.items.indexOf( item ) ].votes_count--;
-			// item.votes_count-- does the same because $localStorage lib watches and syncs storage object with corresponsing scope object
+			var _appData = _getAppData();
+
+			var _item = null;
+
+			// originally a service query w|itemId :)
+			_appData.items.forEach( function( currentValue, index ) {
+				if( item.id === currentValue.id ) {
+					currentValue.votes_count--;
+					currentValue.current_user_voted = false;
+					currentValue.last_voted_at = new Date();
+					// set modified item to return
+					_item = currentValue;
+				}
+			} );
+
+			_setAppData( { items: _appData.items }, true );
+
+			return _item;
 
 		}	
 
@@ -97,44 +142,53 @@
 		*/
 
 		/**
-		 * Initializes app localStorage object
+		 * Initializes app sessionStorage object
 		 */
 		function _initAppData() {
 
-			$localStorage.hblinkvotechallenge = $localStorage.hblinkvotechallenge || {
+			var _appData = {
 
 				items: [],
 				userCheated: false
 
 			};
 
+			if( null === sessionStorage.getItem( 'hblinkvotechallenge' ) ) {
+				sessionStorage.setItem( 'hblinkvotechallenge', JSON.stringify( _appData ) );
+			}
+
 		}
 
 		/**
-		 * Get app localStorage data object
+		 * Get app sessionStorage data object
 		 */
 		function _getAppData() {
 
-			return $localStorage.hblinkvotechallenge;
+			return JSON.parse( sessionStorage.getItem( 'hblinkvotechallenge' ) );
 
 		}
 
 		/**
-		 * Set app localStorage data object
+		 * Set app sessionStorage data object
+		 * `data` param expected as an object contains "items" array and "userCheated" flag
 		 * 
-		 * @param items
-		 * @param userCheated
+		 * @param Object data
+		 * @param Boolean overwrite
 		 */
-		function _setAppData( items, userCheated ) {
+		function _setAppData( data, overwrite ) {
 
-			$localStorage.hblinkvotechallenge = $localStorage.hblinkvotechallenge || {};
+			// todo :: check availability again?
 
-			if( items ) {
-				$localStorage.hblinkvotechallenge.items = $localStorage.hblinkvotechallenge.items.concat( items );
+			var _appData = _getAppData();
+
+			if( data.items ) {
+				_appData.items = overwrite ? data.items : _appData.items.concat( data.items );
 			}
-			if( userCheated ) {
-				$localStorage.hblinkvotechallenge.userCheated = userCheated;
+			if( data.userCheated ) {
+				_appData.userCheated = data.userCheated;
 			}
+
+			sessionStorage.setItem( 'hblinkvotechallenge', JSON.stringify( _appData ) );
 
 		}
 

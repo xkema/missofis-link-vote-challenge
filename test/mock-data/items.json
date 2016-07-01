@@ -9,6 +9,8 @@
 			"tagline": "Test & create the perfect typography setup for your website",
 			"comments_count": 49,
 			"created_at": "2016-06-27T01:07:24.588-07:00",
+			"last_voted_at": "2016-06-27T01:07:24.588-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -200,6 +202,8 @@
 			"tagline": "Smart clipboard history and snippet manager for Mac",
 			"comments_count": 67,
 			"created_at": "2016-06-27T02:04:29.829-07:00",
+			"last_voted_at": "2016-06-27T02:04:29.829-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -329,6 +333,8 @@
 			"tagline": "253 NASA open source software projects",
 			"comments_count": 11,
 			"created_at": "2016-06-27T01:01:26.000-07:00",
+			"last_voted_at": "2016-06-27T01:01:26.000-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -425,6 +431,8 @@
 			"tagline": "API for building, scaling and personalizing feeds",
 			"comments_count": 16,
 			"created_at": "2016-06-27T01:00:01.000-07:00",
+			"last_voted_at": "2016-06-27T01:00:01.000-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -722,6 +730,8 @@
 			"tagline": "Free fully customizable UI Kit for Sketch",
 			"comments_count": 11,
 			"created_at": "2016-06-27T03:44:20.077-07:00",
+			"last_voted_at": "2016-06-27T03:44:20.077-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -1029,6 +1039,8 @@
 			"tagline": "A smart little robot by Anki",
 			"comments_count": 26,
 			"created_at": "2016-06-27T08:15:52.940-07:00",
+			"last_voted_at": "2016-06-27T08:15:52.940-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -1158,6 +1170,8 @@
 			"tagline": "Get a new SaaS startup idea, every single day",
 			"comments_count": 26,
 			"created_at": "2016-06-27T06:01:52.715-07:00",
+			"last_voted_at": "2016-06-27T06:01:52.715-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -1334,6 +1348,8 @@
 			"tagline": "Now you can add stickers to your photos on Twitter",
 			"comments_count": 10,
 			"created_at": "2016-06-27T07:19:11.417-07:00",
+			"last_voted_at": "2016-06-27T07:19:11.417-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -1515,6 +1531,8 @@
 			"tagline": "Create realistic mockups for your website & mobile apps.",
 			"comments_count": 5,
 			"created_at": "2016-06-27T07:26:43.041-07:00",
+			"last_voted_at": "2016-06-27T07:26:43.041-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -1649,6 +1667,8 @@
 			"tagline": "Embed Facebook albums to your website",
 			"comments_count": 17,
 			"created_at": "2016-06-27T00:03:00.599-07:00",
+			"last_voted_at": "2016-06-27T00:03:00.599-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -1820,6 +1840,8 @@
 			"tagline": "Client, project and time management",
 			"comments_count": 4,
 			"created_at": "2016-06-27T02:06:56.485-07:00",
+			"last_voted_at": "2016-06-27T02:06:56.485-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -1969,6 +1991,8 @@
 			"tagline": "Instant message interviews",
 			"comments_count": 11,
 			"created_at": "2016-06-27T00:43:46.076-07:00",
+			"last_voted_at": "2016-06-27T00:43:46.076-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -2140,6 +2164,8 @@
 			"tagline": "Reinvent your call center using Slack.",
 			"comments_count": 4,
 			"created_at": "2016-06-27T07:23:23.668-07:00",
+			"last_voted_at": "2016-06-27T07:23:23.668-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -2316,6 +2342,8 @@
 			"tagline": "Put your stories up on the Internet. Lets Tolk!",
 			"comments_count": 13,
 			"created_at": "2016-06-27T02:20:49.999-07:00",
+			"last_voted_at": "2016-06-27T02:20:49.999-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -2460,6 +2488,8 @@
 			"tagline": "Creating quality time for parents and kids!",
 			"comments_count": 1,
 			"created_at": "2016-06-27T07:31:24.548-07:00",
+			"last_voted_at": "2016-06-27T07:31:24.548-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -2624,6 +2654,8 @@
 			"tagline": "The classy name generator",
 			"comments_count": 12,
 			"created_at": "2016-06-27T05:25:50.691-07:00",
+			"last_voted_at": "2016-06-27T05:25:50.691-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -2758,6 +2790,8 @@
 			"tagline": "Yoga, massage, meditation, and more for your office",
 			"comments_count": 2,
 			"created_at": "2016-06-27T00:02:44.891-07:00",
+			"last_voted_at": "2016-06-27T00:02:44.891-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -2887,6 +2921,8 @@
 			"tagline": "Project management and group chat",
 			"comments_count": 10,
 			"created_at": "2016-06-27T02:50:53.912-07:00",
+			"last_voted_at": "2016-06-27T02:50:53.912-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -3021,6 +3057,8 @@
 			"tagline": "Democratizing made-to-measure menswear with Honest Luxury",
 			"comments_count": 5,
 			"created_at": "2016-06-27T08:00:00.000-07:00",
+			"last_voted_at": "2016-06-27T08:00:00.000-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -3150,6 +3188,8 @@
 			"tagline": "A wallet with a built-in, super slim 4,000 mAh battery",
 			"comments_count": 1,
 			"created_at": "2016-06-27T08:47:58.295-07:00",
+			"last_voted_at": "2016-06-27T08:47:58.295-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -3246,6 +3286,8 @@
 			"tagline": "3-in-1 all metal thermos, mug and food container",
 			"comments_count": 0,
 			"created_at": "2016-06-27T07:17:23.782-07:00",
+			"last_voted_at": "2016-06-27T07:17:23.782-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -3342,6 +3384,8 @@
 			"tagline": "Your mobile photo printer",
 			"comments_count": 0,
 			"created_at": "2016-06-27T09:05:30.686-07:00",
+			"last_voted_at": "2016-06-27T09:05:30.686-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -3423,6 +3467,8 @@
 			"tagline": "It makes a preview from an url grabbing all the information",
 			"comments_count": 0,
 			"created_at": "2016-06-27T00:37:31.000-07:00",
+			"last_voted_at": "2016-06-27T00:37:31.000-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -3552,6 +3598,8 @@
 			"tagline": "Get notified when new tracks get added to Spotify playlists",
 			"comments_count": 3,
 			"created_at": "2016-06-27T00:51:34.478-07:00",
+			"last_voted_at": "2016-06-27T00:51:34.478-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false
@@ -3686,6 +3734,8 @@
 			"tagline": "Email and document tracking & live meeting tool",
 			"comments_count": 3,
 			"created_at": "2016-06-27T01:29:59.138-07:00",
+			"last_voted_at": "2016-06-27T01:29:59.138-07:00",
+			"current_user_voted": false,
 			"current_user": {
 				"voted_for_post": false,
 				"commented_on_post": false

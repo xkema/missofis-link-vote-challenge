@@ -14,65 +14,66 @@ describe( 'UNIT ::  Controller Test : HomeCtrl', function() {
 
 	describe( 'HomeCtrl :: Controller Creation', function() {
 
-		it( 'should define a null "links" property (hello world! test)', function() {
-			expect( __controller.links ).toBeNull();
+		it( 'should define a "links" property (hello world! test)', function() {
+			expect( __controller.links ).toBeDefined();
 		} );
 		
 	} );
 
 	describe( 'HomeCtrl :: Controller Behaviour', function() {
 
-		var _item,
-			_items,
-			_sortedItemsByVotesCount,
-			_sortedItemsByCreationDate;
+		var _itemsUnsorted,
+			_itemsSortedByCreationDate,
+			_itemsSortedByVotesCount;
+
+		// var _item,
+		// 	_items,
 
 		beforeEach( function() {
-			_item = MockHelpers.getSingleItem();
-			_items = MockHelpers.getItemsUnsorted(); // get dummy array for sorting
-			_sortedItemsByVotesCount = MockHelpers.getItemsSortedByVotesCount();
-			_sortedItemsByCreationDate = MockHelpers.getItemsSortedByCreationDate();
+			_itemsUnsorted = MockHelpers.getItemsUnsorted();
+			_itemsSortedByCreationDate = MockHelpers.getItemsSortedByCreationDate();
+			_itemsSortedByVotesCount = MockHelpers.getItemsSortedByVotesCount();
 		} );
 
-		it( 'should sort array by vote count (and date if vote counts are identical)', function() {
-			__controller.sortItems( _items, false, false ); // checks for vote count + date sorting
-			expect( _items ).toEqual( _sortedItemsByVotesCount );
+		it( 'should sort array by votes count (and date if vote counts are identical)', function() {
+			__controller.sortItemsByVoteCount( _itemsUnsorted, false );
+			expect( _itemsUnsorted ).toEqual( _itemsSortedByVotesCount );
 		} );
 
 		it( 'should sort array by creation date', function() {
-			__controller.sortItems( _items, true, false ); // checks for date sorting
-			expect( _items ).toEqual( _sortedItemsByCreationDate );
+			__controller.sortItemsByCreationDate( _itemsUnsorted, false );
+			expect( _itemsUnsorted ).toEqual( _itemsSortedByCreationDate );
 		} );
 
-		it( 'should increase votes count by 1', function() {
-			__controller.upVote( _item ); // vote_count: 100
-			expect( _item.votes_count ).toEqual( 101 );
-		} );
+		// it( 'should increase votes count by 1', function() {
+		// 	__controller.upVote( _item ); // vote_count: 100
+		// 	expect( _item.votes_count ).toEqual( 101 );
+		// } );
 
-		it( 'should decrease votes count by 1 three times', function() {
-			__controller.downVote( _item ); // vote_count: 100--
-			__controller.downVote( _item ); // vote_count: 99--
-			__controller.downVote( _item ); // vote_count: 98-- (can a user decrease h(er|is)+ vote again & again?)
-			expect( _item.votes_count ).toEqual( 97 );
-		} );
+		// it( 'should decrease votes count by 1 three times', function() {
+		// 	__controller.downVote( _item ); // vote_count: 100--
+		// 	__controller.downVote( _item ); // vote_count: 99--
+		// 	__controller.downVote( _item ); // vote_count: 98-- (can a user decrease h(er|is)+ vote again & again?)
+		// 	expect( _item.votes_count ).toEqual( 97 );
+		// } );
 
 
 	} );
 	
-	describe( 'HomeCtrl :: Controller XHR/Service Related', function() {
+	// describe( 'HomeCtrl :: Controller XHR/Service Related', function() {
 
-		var _initialAppData;
+		// var _initialAppData;
 
-		beforeEach( function() {
-			_initialAppData = __controller.getAppData();
-		} );
+		// beforeEach( function() {
+		// 	_initialAppData = __controller.getAppData();
+		// } );
 
-		it( 'should read initial app data from $localStorage', function() {
-			expect( _initialAppData.items ).toBeDefined();
-			expect( _initialAppData.userCheated ).toBeDefined();
-		} );
+		// it( 'should read initial app data from $localStorage', function() {
+		// 	expect( _initialAppData.items ).toBeDefined();
+		// 	expect( _initialAppData.userCheated ).toBeDefined();
+		// } );
 
-	} );
+	// } );
 
 } );
 
