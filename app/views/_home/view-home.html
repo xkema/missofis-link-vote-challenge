@@ -1,10 +1,16 @@
 <h1>home</h1>
 <p>#links: {{vm.links.length | number}}</p>
-<select ng-model="vm.listOrder" ng-change="vm.changeOrder()">
-	<option value="">Order by</option>
-	<option value="decreasing">most voted z > a</option>
-	<option value="increasing">less voted a > z</option>
-</select>
+
+<div ng-show="0===vm.links.length">
+	<p> <strong>no new links, you should add some! &rarr;</strong> <a href="#!/add">add new item</a></p>
+</div>
+<div ng-hide="0===vm.links.length">
+	<select ng-model="vm.listOrder" ng-change="vm.changeOrder()">
+		<option value="">Order by</option>
+		<option value="decreasing">most voted z > a</option>
+		<option value="increasing">less voted a > z</option>
+	</select>
+</div>
 <ol>
 	<li ng-repeat="link in vm.links">
 		<p>		
@@ -15,7 +21,7 @@
 				<span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#888;color:#fff;">{{link.last_voted_at | date: 'dd.MM.yyyy'}}</span> <span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#888;color:#fff;">{{link.last_voted_at | date: 'HH:mm:ss'}}</span> <br>
 			<u><strong>id</strong></u>: {{link.id}} <br>
 			<u><strong>created_at</strong></u>: 
-				<span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#333;color:#fff;">{{link.created_at | date: 'dd.MM.yyyy'}}</span> <span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#333;color:#fff;">{{link.created_at | date: 'HH:mm'}}</span> <br>
+				<span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#333;color:#fff;">{{link.created_at | date: 'dd.MM.yyyy'}}</span> <span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#333;color:#fff;">{{link.created_at | date: 'HH:mm:ss'}}</span> <br>
 			<u><strong>link</strong></u>: {{link.redirect_url}}
 		</p>
 		<p>

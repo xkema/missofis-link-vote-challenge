@@ -57,7 +57,14 @@
 		 */
 		function _addItem( item ) {
 
-			$localStorage.hblinkvotechallenge.items.unshift( item );
+			var _appData = _getAppData();
+
+			// originally a service query w|itemId :)
+			_appData.items.unshift( item );
+
+			_setAppData( { items: _appData.items }, true );
+
+			return true;
 
 		}
 

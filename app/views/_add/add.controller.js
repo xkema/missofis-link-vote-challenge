@@ -25,10 +25,7 @@
 		*/
 		
 		// controller bindables
-		vm.formData = {
-			linkName: 'at',
-			linkUrl: 'http://at.com'
-		};
+		vm.formData = { linkName: 'at', linkUrl: 'http://at.com' };
 
 		// controller api
 		vm.addLink = _addLink;
@@ -51,9 +48,11 @@
 
 				id: Math.ceil( Math.random() * Date.now() ),
 				name: vm.formData.linkName,
-				redirect_url: vm.formData.linkName,
+				redirect_url: vm.formData.linkUrl,
 				created_at: Date.now(),
-				votes_count: 0
+				votes_count: 0,
+				last_voted_at: null,
+				current_user_voted: false
 
 			};
 
@@ -61,10 +60,7 @@
 			LinkVoteChallengeService.addItem( _item );
 
 			// clear form
-			vm.formData = {
-				linkName: '',
-				linkUrl: ''
-			};
+			vm.formData = { linkName: '', linkUrl: '' };
 
 		}
 

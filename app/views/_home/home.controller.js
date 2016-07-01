@@ -56,7 +56,7 @@
 			reversed = reversed ? -1 : 1;
 			
 			return items.sort( function( a, b ) {
-				return reversed * ( Date.parse( b.created_at ) - Date.parse( a.created_at ) );
+				return reversed * ( new Date( b.created_at ) - new Date( a.created_at ) );
 			} );
 
 		}
@@ -67,7 +67,7 @@
 			reversed = reversed ? -1 : 1;
 
 			return items.sort( function( a, b ) {
-				return reversed * ( b.votes_count - a.votes_count ) || reversed * ( Date.parse( b.last_voted_at ) - Date.parse( a.last_voted_at ) ); // b.votes_count - a.votes_count is falsy for equality, check date in this case
+				return reversed * ( b.votes_count - a.votes_count ) || reversed * ( new Date( b.last_voted_at ) - new Date( a.last_voted_at ) ); // b.votes_count - a.votes_count is falsy for equality, check date in this case
 			} );
 
 		}
