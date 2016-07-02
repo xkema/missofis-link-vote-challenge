@@ -9,12 +9,12 @@
 		.module( 'com.hepsiburada.linkvotechallenge' )
 		.controller( 'HomeCtrl', HomeCtrl );
 
-	HomeCtrl.$inject = [ '$log', 'LinkVoteChallengeService' ];
+	HomeCtrl.$inject = [ '$log', 'LinkVoteChallengeService', '$scope', '$timeout' ];
 
 	/**
 	 * Home controller
 	 */
-	function HomeCtrl( $log, LinkVoteChallengeService ) {
+	function HomeCtrl( $log, LinkVoteChallengeService, $scope, $timeout ) {
 
 		var vm = this;
 
@@ -26,7 +26,10 @@
 		
 		// controller bindables
 		vm.links = null;
+		vm.linksPaged = null;
 		vm.listOrder = '';
+		vm.paginationData = { itemsPerPage: 5, currentPage: 1 };
+		vm.disableRemove = false;
 
 		// controller api
 		vm.sortItemsByCreationDate = _sortItemsByCreationDate;
@@ -36,6 +39,7 @@
 		vm.getAppData = _getAppData;
 		vm.removeLink = _removeLink;
 		vm.changeOrder = _changeOrder;
+		vm.getItems = _getItems;
 
 		// internals
 		var _appData = null;
@@ -111,14 +115,24 @@
 			// remove link from storage
 			var _itemRemoved = LinkVoteChallengeService.removeItem( item );
 
-			// show toast
-			if( _itemRemoved ) {
+			// disable further removals for 1s
+			vm.disableRemove = true;
 
-				vm.links.splice( index, 1 );
+			// set timeout to wait localstorage update (~1s enough?)
+			$timeout( function() {
+				// disable remove
+				vm.disableRemove = false;
+				
+				// show toast
+				if( _itemRemoved ) {
 
-				$log.info( '++____ :: Item removed, show toaster!' );
+					vm.links.splice( index, 1 );
 
-			}
+					$log.info( '++____ :: Item removed, show toaster!' );
+
+				}
+			}, 1000 );
+
 
 		}
 
@@ -126,7 +140,7 @@
 		function _changeOrder() {
 
 			if( '' === vm.listOrder ) {
-				_sortItemsByCreationDate( _appData.items, false );				
+				_sortItemsByCreationDate( _appData.items, false );
 			}
 			else if( 'decreasing' === vm.listOrder ) {
 				_sortItemsByVoteCount( _appData.items, false );
@@ -134,6 +148,17 @@
 			else if( 'increasing' === vm.listOrder ) {
 				_sortItemsByVoteCount( _appData.items, true );
 			}
+
+		}
+
+		// get items fo r pagination
+		function _getItems( pageNumber ) {
+
+			if( 0 !== vm.links.length && pageNumber > Math.ceil( vm.links.length / vm.paginationData.itemsPerPage ) ) {
+				vm.paginationData.currentPage = --pageNumber;
+			}
+
+			vm.linksPaged = vm.links.slice( ( pageNumber - 1 ) * vm.paginationData.itemsPerPage, pageNumber * vm.paginationData.itemsPerPage );
 
 		}
 
@@ -145,6 +170,10 @@
 			_appData = _getAppData();
 
 			vm.links = _sortItemsByCreationDate( _appData.items, false );
+
+			$scope.$watchCollection( 'vm.links', function() {
+				_getItems( vm.paginationData.currentPage );
+			} );
 
 		}
 

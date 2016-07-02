@@ -25,7 +25,7 @@
 		*/
 		
 		// controller bindables
-		vm.formData = { linkName: 'at', linkUrl: 'http://at.com' };
+		vm.formData = { linkName: 'at-'+Date.now(), linkUrl: 'http://at-'+Date.now()+'.com' };
 
 		// controller api
 		vm.addLink = _addLink;

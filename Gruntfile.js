@@ -28,8 +28,10 @@ module.exports = function( grunt ) {
 				bsFiles: {
 					src: [
 						'app/index.html',
-						'app/views/_*/*.controller?(.spec).js',
+						'app/views/_*/*.(controller|directive)?(.spec).js',
+						'app/common/_*/*.(controller|directive)?(.spec).js',
 						'app/views/_*/view-*.html',
+						'app/common/_*/template-*.html',
 						'app/services/*.js',
 						'app/core/*.js'
 					]
@@ -44,7 +46,7 @@ module.exports = function( grunt ) {
 							'/test': 'test'
 						}
 					},
-					open: true,
+					open: !true,
 					browser: [ 'chrome' ], // strangely opens in chrome canary :)
 				}
 			}

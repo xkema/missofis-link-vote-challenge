@@ -5,10 +5,17 @@
 </style>
 <h1>home</h1>
 <p>#links: {{vm.links.length | number}}</p>
+<p>#pagination: {{vm.paginationData}}</p>
 
 <div ng-show="0===vm.links.length">
 	<p> <strong>no new links, you should add some! &rarr;</strong> <a href="#!/add">add new item</a></p>
 </div>
+
+
+<!-- pagination -->
+<hb-link-vote-pagination num-items="{{vm.links.length}}" items-per-page="{{vm.paginationData.itemsPerPage}}" current-page="vm.paginationData.currentPage" update-page-data="vm.getItems(page)"></hb-link-vote-pagination>
+
+
 <div ng-hide="0===vm.links.length">
 	<select ng-model="vm.listOrder" ng-change="vm.changeOrder()">
 		<option value="">Order by (creation date)</option>
@@ -17,7 +24,7 @@
 	</select>
 </div>
 <ol>
-	<li ng-repeat="link in vm.links" style="border:1px solid #ccc;margin-bottom:10px;padding:0px 10px;">
+	<li ng-repeat="link in vm.linksPaged" style="border:1px solid #ccc;margin-bottom:10px;padding:0px 10px;">
 		<p>		
 			<u><strong>name</strong></u>: {{link.name}} <br>
 			<u><strong>votes</strong></u>: {{link.votes_count}} <br>
@@ -30,9 +37,15 @@
 			<u><strong>link</strong></u>: {{link.redirect_url}}
 		</p>
 		<p>
-			<button type="button" ng-click="vm.removeLink(link,$index)">remove</button>
+			<button type="button" ng-click="vm.removeLink(link,$index)" ng-disabled="vm.disableRemove">remove</button>
 			<button type="button" ng-click="vm.downVote(link,$index)" ng-show="link.current_user_voted">downvote</button>
 			<button type="button" ng-click="vm.upVote(link,$index)" ng-show="!link.current_user_voted">upvote</button>
 		</p>
 	</li>
 </ol>
+
+
+
+
+
+
