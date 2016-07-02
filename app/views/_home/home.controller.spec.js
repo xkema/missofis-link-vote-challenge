@@ -3,12 +3,14 @@ describe( 'UNIT ::  Controller Test : HomeCtrl', function() {
 	// MockHelpers is defined in the global scope and injected via karma.conf.js
 	// @see `mock-helpers.js` for mock data helpers
 
-	var __controller;
+	var __controller,
+		$scope;
 
 	beforeEach( function() {
 		angular.mock.module( 'com.hepsiburada.linkvotechallenge' );
-		angular.mock.inject( function( $controller ) {
-			__controller = $controller( 'HomeCtrl' );
+		angular.mock.inject( function( $controller, $rootScope ) {
+			$scope = $rootScope.$new();
+			__controller = $controller( 'HomeCtrl', { $scope: $scope } );
 		} );
 	} );
 
