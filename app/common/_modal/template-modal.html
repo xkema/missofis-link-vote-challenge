@@ -1,11 +1,18 @@
-<!-- modal -->
-<div style="padding:20px;background:#eee;position:absolute;top:0;left:0;right:0;" ng-show="vm_.modalOpen">
+<!-- modal overlay-->
+<div class="hb-modal-overlay" ng-show="vm_.modalOpen"></div>
 
-	<h1>modal</h1>
-	
+<!-- modal content -->
+<div class="hb-modal-content" ng-show="vm_.modalOpen">
+
+	<h3>Upppsie!</h3>
+
 	<p>u're about to remove "<strong>{{vm_.modalItem.name}}</strong>" completely!</p>
-
-	<button ng-click="vm_.doModalAction()">ok</button>
-	<button ng-click="vm_.closeModal()">cancel</button>
+	
+	<div class="u-pull-right">
+		<button class="hb-button-small-gap" ng-click="vm_.closeModal()"><i class="fa fa-times" aria-hidden="true"></i> cancel</button>
+		<button class="hb-button-small-gap" ng-click="vm_.doModalAction()"><i class="fa fa-trash" aria-hidden="true"></i> delete it!</button>
+	</div>
 
 </div>
+
+

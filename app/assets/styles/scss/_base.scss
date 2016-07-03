@@ -254,13 +254,6 @@ button {
 
 	}
 
-	button {
-
-		padding-left: 12px;
-		padding-right: 12px;
-
-	}
-
 }
 
 // component :: plain button (uses skeleton base)
@@ -293,6 +286,34 @@ button {
 
 }
 
+// component :: modal overlay
+.hb-modal-overlay {
+
+	background-color: rgba( 0, 0, 0, .35 );
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 9600;
+
+}
+
+// component :: modal content
+.hb-modal-content {
+
+	background-color: $color-gray-light;
+	position: fixed;
+	left: 50%;
+	width: $modal-width-mobile;
+	margin-left: -$modal-width-mobile * .5;
+	padding: $gap-instance;
+	top: 10rem;
+	border-radius: 4px;
+	z-index: 9900;
+
+}
+
 // utitlities :: margin provider
 .hb-push-bottom {
 
@@ -310,6 +331,21 @@ button {
 .text-center {
 
 	text-align: center;
+
+}
+
+// utitlities :: right aligned text
+.text-right {
+
+	text-align: right;
+
+}
+
+// utilities :: button small gap
+.hb-button-small-gap {
+
+	padding-left: $button-small-pad-gap;
+	padding-right: $button-small-pad-gap;
 
 }
 

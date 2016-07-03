@@ -2,7 +2,7 @@
 
 
 
-/* Larger than mobile */
+/* Larger than */
 @media (min-width: 400px) {
 
 	.hb-pagination {
@@ -51,6 +51,14 @@
 		width: 100%;
 		clear: both;
 		padding-top: $gap-instance * .25;
+
+	}
+
+	// component :: modal content
+	.hb-modal-content {
+
+		width: $modal-width;
+		margin-left: -$modal-width * .5;
 
 	}
 

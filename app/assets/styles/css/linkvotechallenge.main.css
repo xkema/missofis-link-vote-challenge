@@ -129,11 +129,7 @@ button[disabled] {
 }
 .hb-pagination .hb-pagination-indicator {
   display: inline-block;
-  min-width: 60px;
-}
-.hb-pagination button {
-  padding-left: 12px;
-  padding-right: 12px;
+  min-width: 50px;
 }
 
 .hb-button-plain {
@@ -154,6 +150,28 @@ button[disabled] {
   font-size: 1.5rem;
 }
 
+.hb-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.35);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9300;
+}
+
+.hb-modal-content {
+  background-color: #f4f4f4;
+  position: fixed;
+  left: 50%;
+  width: 90%;
+  margin-left: -45%;
+  padding: 2rem;
+  top: 10rem;
+  border-radius: 4px;
+  z-index: 9900;
+}
+
 .hb-push-bottom {
   margin-bottom: 3rem;
 }
@@ -163,6 +181,15 @@ button[disabled] {
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.hb-button-small-gap {
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .color-error {
@@ -191,11 +218,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* Larger than mobile */
+/* Larger than */
 @media (min-width: 400px) {
   .hb-pagination .hb-pagination-indicator {
     display: inline-block;
-    min-width: 60px;
+    min-width: 50px;
   }
   .hb-pagination button {
     padding-left: 30px;
@@ -222,6 +249,11 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     clear: both;
     padding-top: 0.5rem;
+  }
+
+  .hb-modal-content {
+    width: 500px;
+    margin-left: -250px;
   }
 }
 /* Larger than tablet */
