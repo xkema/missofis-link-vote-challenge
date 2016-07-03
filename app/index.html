@@ -16,7 +16,7 @@
 <body>
 
 	<!-- app main wrapper -->
-	<div id="lvc-app-wrapper">
+	<div id="hb-link-vote-app-wrapper">
 
 		<header>
 			<p>app header</p>
@@ -25,10 +25,7 @@
 				<a href="#!/add">add</a>
 			</nav>
 			<hr>
-		</header>
-		
-		<!-- modal -->
-		<hb-link-vote-modal></hb-link-vote-modal>
+		</header>		
 
 		<!-- app views -->
 		<div ng-view></div>
@@ -39,6 +36,12 @@
 		</footer>
 		
 	</div>
+
+	<!-- modal -->
+	<hb-link-vote-modal></hb-link-vote-modal>
+
+	<!-- toaster -->
+	<hb-link-vote-toaster></hb-link-vote-toaster>
 	
 	<!-- application main module -->
 	<script src="core/app.module.js"></script>
@@ -51,6 +54,8 @@
 	<script src="common/_pagination/pagination.directive.js"></script>
 	<script src="common/_modal/modal.controller.js"></script>
 	<script src="common/_modal/modal.component.js"></script>
+	<script src="common/_toaster/toaster.controller.js"></script>
+	<script src="common/_toaster/toaster.component.js"></script>
 	<!-- home module -->
 	<script src="views/_home/home.controller.js"></script>
 	<!-- add module -->

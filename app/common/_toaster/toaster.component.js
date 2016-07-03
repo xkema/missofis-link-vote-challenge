@@ -1,5 +1,5 @@
 /**
- * Application modal directive
+ * Application toaster directive
  */
 (function () {
 
@@ -7,12 +7,12 @@
 
 	angular
 		.module( 'com.hepsiburada.linkvotechallenge' )
-		.component( 'hbLinkVoteModal', {
+		.component( 'hbLinkVoteToaster', {
 
 			templateUrl: function() {
-				return 'common/_modal/template-modal.html';
+				return 'common/_toaster/template-toaster.html';
 			},
-			controller: 'HbLinkVoteModalCtrl',
+			controller: 'HbLinkVoteToasterCtrl',
 			controllerAs: 'vm_'
 
 		} );

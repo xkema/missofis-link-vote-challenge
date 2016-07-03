@@ -9,12 +9,12 @@
 		.module( 'com.hepsiburada.linkvotechallenge' )
 		.controller( 'AddCtrl', AddCtrl );
 
-	AddCtrl.$inject = [ '$log', 'LinkVoteChallengeService', '$location' ];
+	AddCtrl.$inject = [ '$log', 'LinkVoteChallengeService', '$location', '$rootScope' ];
 
 	/**
 	 * Add controller
 	 */
-	function AddCtrl( $log, LinkVoteChallengeService, $location ) {
+	function AddCtrl( $log, LinkVoteChallengeService, $location, $rootScope ) {
 
 		var vm = this;
 
@@ -58,6 +58,9 @@
 
 			// add single item to storage
 			LinkVoteChallengeService.addItem( _item );
+
+			// @see toaster.controller.js
+			$rootScope.$emit( 'hb.showToaster', { toasterType: 'hb.itemAdded', targetItem: { item: _item } } );
 
 			// clear form
 			vm.formData = { linkName: '', linkUrl: '' };

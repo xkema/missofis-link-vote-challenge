@@ -137,7 +137,8 @@
 
 					vm.links.splice( index, 1 );
 
-					$log.info( '++____ :: Item removed, show toaster!' );
+					// @see toaster.controller.js
+					$rootScope.$emit( 'hb.showToaster', { toasterType: 'hb.itemRemoved', targetItem: { item: item } } );
 
 				}
 			}, 1000 );
