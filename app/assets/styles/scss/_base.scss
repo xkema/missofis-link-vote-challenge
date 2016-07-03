@@ -21,6 +21,20 @@ html {
 
 }
 
+// disabled buttons
+button {
+
+	&[disabled] {
+
+		opacity: 0.4;
+		cursor: default;
+		border-color: $color-gray-medium;
+		outline: 0;
+
+	}
+
+}
+
 // header
 .hb-link-vote-header {
 
@@ -126,7 +140,7 @@ html {
 
 			.hb-link {
 
-				border-bottom: none;
+				// border-bottom: none;
 				
 			}
 
@@ -228,6 +242,26 @@ html {
 
 }
 
+// component :: pagination
+.hb-pagination {
+
+	text-align: center;
+
+	.hb-pagination-indicator {
+
+		display: inline-block;
+		min-width: $pagination-indicator-min-width;
+
+	}
+
+	button {
+
+		padding-left: 12px;
+		padding-right: 12px;
+
+	}
+
+}
 
 // component :: plain button (uses skeleton base)
 .hb-button-plain {

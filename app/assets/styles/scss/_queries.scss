@@ -3,7 +3,27 @@
 
 
 /* Larger than mobile */
-@media (min-width: 400px) {}
+@media (min-width: 400px) {
+
+	.hb-pagination {
+
+		.hb-pagination-indicator {
+
+			display: inline-block;
+			min-width: $pagination-indicator-min-width;
+
+		}
+
+		button {
+
+			padding-left: 30px;
+			padding-right: 30px;
+
+		}
+
+	}
+
+}
 
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {

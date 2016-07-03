@@ -9,6 +9,13 @@ html {
   box-sizing: inherit;
 }
 
+button[disabled] {
+  opacity: 0.4;
+  cursor: default;
+  border-color: #c4c4c4;
+  outline: 0;
+}
+
 .hb-link-vote-header {
   border-bottom: 1px solid #f4f4f4;
   padding-top: 2rem;
@@ -60,9 +67,6 @@ html {
 }
 .hb-links-list li {
   margin-bottom: 0;
-}
-.hb-links-list li:last-child .hb-link {
-  border-bottom: none;
 }
 .hb-links-list .hb-link {
   position: relative;
@@ -118,6 +122,18 @@ html {
   font-size: 1.1rem;
   color: #deba06;
   line-height: 1;
+}
+
+.hb-pagination {
+  text-align: center;
+}
+.hb-pagination .hb-pagination-indicator {
+  display: inline-block;
+  min-width: 60px;
+}
+.hb-pagination button {
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .hb-button-plain {
@@ -176,6 +192,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Larger than mobile */
+@media (min-width: 400px) {
+  .hb-pagination .hb-pagination-indicator {
+    display: inline-block;
+    min-width: 60px;
+  }
+  .hb-pagination button {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {
   .hb-panel-title {

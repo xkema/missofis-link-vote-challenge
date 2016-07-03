@@ -1,12 +1,16 @@
 <!-- pagination -->
-<h1>pagination</h1>
-
-
-<div>
-	<button ng-click="vm_.updatePage('prev')">prev</button>
-	<span>page {{vm_.currentPage}} of {{vm_.numPagesCalculated}}</span>
-	<button ng-click="vm_.updatePage('next')">next</button>
+<div class="container">
+	<div class="row">
+		<div class="twelve columns">
+			<div class="hb-pagination hb-push-bottom push-kindly">
+				<button ng-click="vm_.updatePage('prev')" ng-disabled="vm_.currentPage===1">
+					<i class="fa fa-caret-left" aria-hidden="true"></i> prev
+				</button>
+				<span class="hb-pagination-indicator">{{vm_.currentPage}} of {{vm_.numPagesCalculated}}</span>
+				<button ng-click="vm_.updatePage('next')" ng-disabled="vm_.currentPage===vm_.numPagesCalculated">
+					next <i class="fa fa-caret-right" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
-
-<p>vm :: {{vm}}</p>
-<p>vm_ :: {{vm_}}</p>
