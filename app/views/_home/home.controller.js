@@ -80,8 +80,10 @@
 		// votes up
 		function _upVote( item, index ) {
 
+			var _indexInOriginalArray = index + ( vm.paginationData.currentPage - 1 ) * vm.paginationData.itemsPerPage;
+
 			var _item = LinkVoteChallengeService.upVoteItem( item );
-			vm.links[ index ] = _item;
+			vm.links[ _indexInOriginalArray ] = _item;
 			// re-sort items if list is not ordered default order (by creation date)
 			if( '' !== vm.listOrder ) {
 				var isReversed = 'increasing' === vm.listOrder ? true : false;
@@ -93,8 +95,10 @@
 		// votes down
 		function _downVote( item, index ) {
 
+			var _indexInOriginalArray = index + ( vm.paginationData.currentPage - 1 ) * vm.paginationData.itemsPerPage;
+
 			var _item = LinkVoteChallengeService.downVoteItem( item );
-			vm.links[ index ] = _item;
+			vm.links[ _indexInOriginalArray ] = _item;
 			// re-sort items if list is not ordered default order (by creation date)
 			if( '' !== vm.listOrder ) {
 				var isReversed = 'increasing' === vm.listOrder ? true : false;
@@ -113,8 +117,10 @@
 		// remove link prompter
 		function _removeLinkPrelude( item, index ) {
 
+			var _indexInOriginalArray = index + ( vm.paginationData.currentPage - 1 ) * vm.paginationData.itemsPerPage;
+
 			// @see modal.controller.js
-			$rootScope.$emit( 'hb.openModal', { targetAction: 'hb.removeItem', targetItem: { item: item, index: index } } );
+			$rootScope.$emit( 'hb.openModal', { targetAction: 'hb.removeItem', targetItem: { item: item, index: _indexInOriginalArray } } );
 
 		}
 
