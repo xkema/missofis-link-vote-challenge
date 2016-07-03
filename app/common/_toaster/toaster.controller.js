@@ -57,6 +57,12 @@
 				else if( 'hb.itemRemoved' === data.toasterType ) {
 					vm.toasterMessage = $sce.trustAsHtml( 'Item "<strong>' + data.targetItem.item.name + '</strong>" removed succesfully!' );
 				}
+				else if( 'hb.simpleToast' === data.toasterType ) {
+					vm.toasterMessage = $sce.trustAsHtml( data.message );
+				}
+				else {
+					return false;
+				}
 
 				vm.toasterOpen = true;
 

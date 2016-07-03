@@ -189,6 +189,13 @@
 
 			vm.links = _sortItemsByCreationDate( _appData.items, false );
 
+			if( 0 === vm.links.length ) {
+
+				// @see toaster.controller.js
+				$rootScope.$emit( 'hb.showToaster', { toasterType: 'hb.simpleToast', message: 'No items to list, add some!' } );
+
+			}
+
 			$scope.$watchCollection( 'vm.links', function() {
 
 				_getItems( vm.paginationData.currentPage );
