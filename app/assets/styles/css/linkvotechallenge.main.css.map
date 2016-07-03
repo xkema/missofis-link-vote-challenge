@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,IAAK;EACJ,KAAK,EAAE,GAAG",
+"sources": ["../scss/_variables.scss"],
+"names": [],
+"file": "linkvotechallenge.main.css"
+}

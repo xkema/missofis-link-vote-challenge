@@ -20,6 +20,21 @@ module.exports = function( grunt ) {
 				options: {
 					reload: true
 				}
+			},
+			sass: {
+				files: 'app/assets/styles/scss/*.scss',
+				tasks: [ 'sass' ]
+			},
+		}
+		// task :: @see https://www.npmjs.com/package/grunt-contrib-sass
+		,sass: {
+			dev: {
+				options: {
+					style: 'expanded'
+				},
+				files: {
+					'app/assets/styles/css/linkvotechallenge.main.css': 'app/assets/styles/scss/linkvotechallenge.main.scss'
+				}
 			}
 		}
 		// task :: @see http://www.browsersync.io/docs/grunt/
@@ -77,11 +92,12 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-browser-sync' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-karma' );
-	// load modules (build)
+	grunt.loadNpmTasks( 'grunt-contrib-sass' );
+	// load modules (build?)
 
 	// register "default" development task for grunt
 	grunt.registerTask( 'default', function() {
-		grunt.task.run( 'karma:unit_bg', 'browserSync:dev', 'watch' );
+		grunt.task.run( 'karma:unit_bg', 'sass:dev', 'browserSync:dev', 'watch' );
 	} );	
 
 	// register "test" task for grunt
