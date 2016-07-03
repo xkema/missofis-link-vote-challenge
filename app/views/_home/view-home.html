@@ -62,12 +62,15 @@
 							</div>
 						</li>
 					</ul>
+					<div class="hb-no-links-info text-center" ng-show="vm.links.length===0" ng-cloak>
+						<span>no links to show, use pinkie "<strong>submit link</strong>" button to add some..</span>
+					</div>
 				</div>
 				<div class="hb-panel-footer">
 					<!-- pagination -->
-					<div>
+					<div ng-hide="vm.links.length===0" ng-cloak>
 						<hb-link-vote-pagination num-items="{{vm.links.length}}" items-per-page="{{vm.paginationData.itemsPerPage}}" current-page="vm.paginationData.currentPage" update-page-data="vm.getItems(page)"></hb-link-vote-pagination>
-					</div>
+					</div>					
 				</div>
 			</div>			
 			<!-- end :: panel instance -->

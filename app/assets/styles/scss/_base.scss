@@ -39,8 +39,9 @@ button {
 .hb-link-vote-header {
 
 	border-bottom: 1px solid $color-gray-light;
-	padding-top: 2rem;
-	padding-bottom: 2rem;
+	padding-top: $gap-instance * .75;
+	padding-bottom: $gap-instance * .75;
+	text-align: center;
 
 }
 
@@ -87,6 +88,13 @@ button {
 
 }
 
+// logo text
+.hb-link-vote-logo {
+
+	margin-bottom: $gap-instance * .5;
+
+}
+
 // component :: panel
 .hb-panel {
 
@@ -120,6 +128,13 @@ button {
 	}
 
 	.hb-panel-footer {
+
+	}
+
+	.hb-no-links-info {
+
+		margin-top: $gap-instance;
+		// margin-bottom: $gap-instance;
 
 	}
 
@@ -311,6 +326,41 @@ button {
 	top: 10rem;
 	border-radius: 4px;
 	z-index: 9900;
+
+}
+
+// component :: toaster
+.hb-toaster-content {
+
+	position: fixed;
+	top: 2.5rem;
+	width: $toaster-width-mobile;
+	left: 50%;
+	margin-left: -$toaster-width-mobile * .5;
+	padding: $gap-instance * .375 $gap-instance * .865;
+	z-index: 9300;
+	text-align: center;
+	
+	color: darken( $color-success, 20% );
+	border: 1px solid darken( $color-success, 10% );
+	background-color: $color-success;
+	border-radius: 4px;
+	opacity: .95;
+	line-height: 1.2;
+	font-size: 1.5rem;
+
+	p,
+	h6 {
+
+		margin: 0;
+
+	}
+
+	.toast-success {
+
+
+
+	}
 
 }
 

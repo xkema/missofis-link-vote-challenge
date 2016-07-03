@@ -18,8 +18,9 @@ button[disabled] {
 
 .hb-link-vote-header {
   border-bottom: 1px solid #f4f4f4;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
 }
 
 .hb-link-vote-footer {
@@ -43,6 +44,10 @@ button[disabled] {
   background-color: #e61f3b;
 }
 
+.hb-link-vote-logo {
+  margin-bottom: 1rem;
+}
+
 .hb-panel {
   border: 1px solid #f4f4f4;
 }
@@ -58,6 +63,9 @@ button[disabled] {
 .hb-panel .hb-panel-header select,
 .hb-panel .hb-panel-header h4 {
   margin: 0 0 1rem 0;
+}
+.hb-panel .hb-no-links-info {
+  margin-top: 2rem;
 }
 
 .hb-links-list {
@@ -157,7 +165,7 @@ button[disabled] {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 9300;
+  z-index: 9600;
 }
 
 .hb-modal-content {
@@ -170,6 +178,28 @@ button[disabled] {
   top: 10rem;
   border-radius: 4px;
   z-index: 9900;
+}
+
+.hb-toaster-content {
+  position: fixed;
+  top: 2.5rem;
+  width: 80%;
+  left: 50%;
+  margin-left: -40%;
+  padding: 0.75rem 1.73rem;
+  z-index: 9300;
+  text-align: center;
+  color: #527f18;
+  border: 1px solid #6ea921;
+  background-color: #8ad429;
+  border-radius: 4px;
+  opacity: .95;
+  line-height: 1.2;
+  font-size: 1.5rem;
+}
+.hb-toaster-content p,
+.hb-toaster-content h6 {
+  margin: 0;
 }
 
 .hb-push-bottom {
@@ -254,6 +284,23 @@ h1, h2, h3, h4, h5, h6 {
   .hb-modal-content {
     width: 500px;
     margin-left: -250px;
+  }
+
+  .hb-toaster-content {
+    right: 2.5rem;
+    width: 360px;
+    left: auto;
+    margin-left: -180px;
+    padding: 1.5rem;
+  }
+
+  .hb-link-vote-logo {
+    float: right;
+    margin-bottom: 0;
+  }
+
+  .hb-link-vote-nav {
+    float: left;
   }
 }
 /* Larger than tablet */

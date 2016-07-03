@@ -62,6 +62,31 @@
 
 	}
 
+	// component :: toaster
+	.hb-toaster-content {
+
+		right: 2.5rem;
+		width: $toaster-width;
+		left: auto;
+		margin-left: -$toaster-width * .5;
+		padding: $gap-instance * .75;
+
+	}
+
+	// header items
+	.hb-link-vote-logo {
+
+		float: right;
+		margin-bottom: 0;
+
+	}
+
+	.hb-link-vote-nav {
+
+		float: left;
+
+	}
+
 }
 
 /* Larger than tablet */
