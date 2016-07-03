@@ -30,6 +30,7 @@
 		vm.listOrder = '';
 		vm.paginationData = { itemsPerPage: 5, currentPage: 1 };
 		vm.disableRemove = false;
+		vm.showExtras = false;
 
 		// controller api
 		vm.sortItemsByCreationDate = _sortItemsByCreationDate;
@@ -41,6 +42,7 @@
 		vm.removeLink = _removeLink;
 		vm.changeOrder = _changeOrder;
 		vm.getItems = _getItems;
+		vm.toggleExtras = _toggleExtras;
 
 		// internals
 		var _appData = null;
@@ -177,6 +179,13 @@
 			}
 
 			vm.linksPaged = vm.links.slice( ( pageNumber - 1 ) * vm.paginationData.itemsPerPage, pageNumber * vm.paginationData.itemsPerPage );
+
+		}
+
+		// toggle visibility of ectra content
+		function _toggleExtras() {
+
+			vm.showExtras = !vm.showExtras;
 
 		}
 
