@@ -9,12 +9,12 @@
 		.module( 'com.hepsiburada.linkvotechallenge' )
 		.controller( 'HbLinkVoteToasterCtrl', HbLinkVoteToasterCtrl );
 
-	HbLinkVoteToasterCtrl.$inject = [ '$log', '$scope', '$rootScope', '$timeout' ];
+	HbLinkVoteToasterCtrl.$inject = [ '$log', '$scope', '$rootScope', '$timeout', '$sce' ];
 
 	/**
 	 * HbLinkVoteToasterCtrl controller
 	 */
-	function HbLinkVoteToasterCtrl( $log, $scope, $rootScope, $timeout ) {
+	function HbLinkVoteToasterCtrl( $log, $scope, $rootScope, $timeout, $sce ) {
 
 		var vm = this;
 
@@ -51,11 +51,11 @@
 			$rootScope.$on( 'hb.showToaster', function( event, data ) {
 
 				if( 'hb.itemAdded' === data.toasterType ) {
-					vm.toasterMessage = data.targetItem.item.name + ' item added!';
+					vm.toasterMessage = $sce.trustAsHtml( '"<strong>' + data.targetItem.item.name + '"</strong> item added!' );
 				}
 
 				else if( 'hb.itemRemoved' === data.toasterType ) {
-					vm.toasterMessage = 'Item ' + data.targetItem.item.name + ' removed succesfully!';
+					vm.toasterMessage = $sce.trustAsHtml( 'Item "<strong>' + data.targetItem.item.name + '</strong>" removed succesfully!' );
 				}
 
 				vm.toasterOpen = true;

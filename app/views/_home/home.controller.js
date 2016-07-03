@@ -135,7 +135,8 @@
 
 			// set timeout to wait localstorage update (~1s enough?)
 			$timeout( function() {
-				// disable remove
+
+				// enable remove
 				vm.disableRemove = false;
 				
 				// show toast
@@ -147,6 +148,7 @@
 					$rootScope.$emit( 'hb.showToaster', { toasterType: 'hb.itemRemoved', targetItem: { item: item } } );
 
 				}
+
 			}, 1000 );
 
 

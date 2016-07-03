@@ -14,7 +14,7 @@
 			<label for="hb-link-url">Link URL:</label>
 			<input type="text" placeholder="http://abc.xyz" id="hb-link-url" ng-model="vm.formData.linkUrl">
 		</div>
-		<button type="submit">add</button>
+		<button type="submit" ng-disabled="vm.disableAdd">add</button>
 	</form>
 
 	

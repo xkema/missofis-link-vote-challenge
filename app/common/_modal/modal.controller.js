@@ -30,6 +30,7 @@
 		// controller api
 		vm.closeModal = _closeModal;
 		vm.doModalAction = _doModalAction;
+		vm.modalItem = null;
 
 		// internals
 		var _modalData = null;
@@ -82,6 +83,8 @@
 			$rootScope.$on( 'hb.openModal', function( event, data ) {
 
 				_modalData = data;
+
+				vm.modalItem = _modalData.targetItem.item;
 
 				vm.modalOpen = true;				
 

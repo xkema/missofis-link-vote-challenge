@@ -9,12 +9,12 @@
 		.module( 'com.hepsiburada.linkvotechallenge' )
 		.controller( 'AddCtrl', AddCtrl );
 
-	AddCtrl.$inject = [ '$log', 'LinkVoteChallengeService', '$location', '$rootScope' ];
+	AddCtrl.$inject = [ '$log', 'LinkVoteChallengeService', '$location', '$rootScope', '$timeout' ];
 
 	/**
 	 * Add controller
 	 */
-	function AddCtrl( $log, LinkVoteChallengeService, $location, $rootScope ) {
+	function AddCtrl( $log, LinkVoteChallengeService, $location, $rootScope, $timeout ) {
 
 		var vm = this;
 
@@ -25,6 +25,7 @@
 		*/
 		
 		// controller bindables
+		vm.disableAdd = false;
 		vm.formData = { linkName: 'at-'+Date.now(), linkUrl: 'http://at-'+Date.now()+'.com' };
 
 		// controller api
@@ -57,13 +58,28 @@
 			};
 
 			// add single item to storage
-			LinkVoteChallengeService.addItem( _item );
+			var _itemAdded = LinkVoteChallengeService.addItem( _item );
 
-			// @see toaster.controller.js
-			$rootScope.$emit( 'hb.showToaster', { toasterType: 'hb.itemAdded', targetItem: { item: _item } } );
+			// disable further removals for 1s
+			vm.disableAdd = true;
 
-			// clear form
-			vm.formData = { linkName: '', linkUrl: '' };
+			// set timeout to wait localstorage update (~1s enough?)
+			$timeout( function() {
+
+				// disable further removals for 1s
+				vm.disableAdd = false;
+
+				if( _itemAdded ) {
+
+					// @see toaster.controller.js
+					$rootScope.$emit( 'hb.showToaster', { toasterType: 'hb.itemAdded', targetItem: { item: _item } } );
+
+					// clear form
+					vm.formData = { linkName: '', linkUrl: '' };
+
+				}
+
+			}, 1000 );
 
 		}
 
