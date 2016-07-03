@@ -29,7 +29,7 @@ module.exports = function( grunt ) {
 					src: [
 						'app/index.html',
 						'app/views/_*/*.(controller|directive)?(.spec).js',
-						'app/common/_*/*.(controller|directive)?(.spec).js',
+						'app/common/_*/*.(controller|directive|component)?(.spec).js',
 						'app/views/_*/view-*.html',
 						'app/common/_*/template-*.html',
 						'app/services/*.js',

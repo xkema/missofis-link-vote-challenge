@@ -9,12 +9,12 @@
 		.module( 'com.hepsiburada.linkvotechallenge' )
 		.controller( 'HomeCtrl', HomeCtrl );
 
-	HomeCtrl.$inject = [ '$log', 'LinkVoteChallengeService', '$scope', '$timeout' ];
+	HomeCtrl.$inject = [ '$log', 'LinkVoteChallengeService', '$scope', '$timeout', '$rootScope' ];
 
 	/**
 	 * Home controller
 	 */
-	function HomeCtrl( $log, LinkVoteChallengeService, $scope, $timeout ) {
+	function HomeCtrl( $log, LinkVoteChallengeService, $scope, $timeout, $rootScope ) {
 
 		var vm = this;
 
@@ -37,6 +37,7 @@
 		vm.upVote = _upVote;
 		vm.downVote = _downVote;
 		vm.getAppData = _getAppData;
+		vm.removeLinkPrelude = _removeLinkPrelude;
 		vm.removeLink = _removeLink;
 		vm.changeOrder = _changeOrder;
 		vm.getItems = _getItems;
@@ -109,6 +110,14 @@
 
 		}
 
+		// remove link prompter
+		function _removeLinkPrelude( item, index ) {
+
+			// @see modal.controller.js
+			$rootScope.$emit( 'hb.openModal', { targetAction: 'hb.removeItem', targetItem: { item: item, index: index } } );
+
+		}
+
 		// remove link
 		function _removeLink( item, index ) {
 
@@ -172,7 +181,16 @@
 			vm.links = _sortItemsByCreationDate( _appData.items, false );
 
 			$scope.$watchCollection( 'vm.links', function() {
+
 				_getItems( vm.paginationData.currentPage );
+
+			} );
+
+			// listen to modal events
+			$rootScope.$on( 'hb.removeItem', function( event, data ) {
+
+				_removeLink( data.item, data.index );
+
 			} );
 
 		}

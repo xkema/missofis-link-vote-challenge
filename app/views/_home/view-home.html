@@ -25,22 +25,24 @@
 </div>
 <ol>
 	<li ng-repeat="link in vm.linksPaged" style="border:1px solid #ccc;margin-bottom:10px;padding:0px 10px;">
-		<p>		
-			<u><strong>name</strong></u>: {{link.name}} <br>
-			<u><strong>votes</strong></u>: {{link.votes_count}} <br>
-			<u><strong>current_user_voted</strong></u>: {{link.current_user_voted}} <br>
-			<u><strong>last_voted_at</strong></u>: 
-				<span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#888;color:#fff;">{{link.last_voted_at | date: 'dd.MM.yyyy'}}</span> <span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#888;color:#fff;">{{link.last_voted_at | date: 'HH:mm:ss'}}</span> <br>
-			<u><strong>id</strong></u>: {{link.id}} <br>
-			<u><strong>created_at</strong></u>: 
-				<span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#333;color:#fff;">{{link.created_at | date: 'dd.MM.yyyy'}}</span> <span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#333;color:#fff;">{{link.created_at | date: 'HH:mm:ss'}}</span> <br>
-			<u><strong>link</strong></u>: {{link.redirect_url}}
-		</p>
-		<p>
-			<button type="button" ng-click="vm.removeLink(link,$index)" ng-disabled="vm.disableRemove">remove</button>
-			<button type="button" ng-click="vm.downVote(link,$index)" ng-show="link.current_user_voted">downvote</button>
-			<button type="button" ng-click="vm.upVote(link,$index)" ng-show="!link.current_user_voted">upvote</button>
-		</p>
+		<div>
+			<p>		
+				<u><strong>name</strong></u>: {{link.name}} <br>
+				<u><strong>votes</strong></u>: {{link.votes_count}} <br>
+				<u><strong>current_user_voted</strong></u>: {{link.current_user_voted}} <br>
+				<u><strong>last_voted_at</strong></u>: 
+					<span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#888;color:#fff;">{{link.last_voted_at | date: 'dd.MM.yyyy'}}</span> <span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#888;color:#fff;">{{link.last_voted_at | date: 'HH:mm:ss'}}</span> <br>
+				<u><strong>id</strong></u>: {{link.id}} <br>
+				<u><strong>created_at</strong></u>: 
+					<span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#333;color:#fff;">{{link.created_at | date: 'dd.MM.yyyy'}}</span> <span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#333;color:#fff;">{{link.created_at | date: 'HH:mm:ss'}}</span> <br>
+				<u><strong>link</strong></u>: {{link.redirect_url}}
+			</p>
+			<p>
+				<button type="button" ng-click="vm.removeLinkPrelude(link,$index)" ng-disabled="vm.disableRemove">remove</button>
+				<button type="button" ng-click="vm.downVote(link,$index)" ng-show="link.current_user_voted">downvote</button>
+				<button type="button" ng-click="vm.upVote(link,$index)" ng-show="!link.current_user_voted">upvote</button>
+			</p>			
+		</div>
 	</li>
 </ol>
 
