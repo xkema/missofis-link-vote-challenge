@@ -1,48 +1,77 @@
-<h1>home</h1>
-<p>#links: {{vm.links.length | number}}</p>
-<p>#pagination: {{vm.paginationData}}</p>
+<div class="container">
+	<div class="row">
+		<div class="twelve columns">
 
-<div ng-show="0===vm.links.length">
-	<p> <strong>no new links, you should add some! &rarr;</strong> <a href="#!/add">add new item</a></p>
-</div>
+			<!-- panel instance -->
+			<div class="hb-panel">
+				<div class="hb-panel-header hb-cf">
+					<div class="hb-panel-title">
+						<h4>Recent Posts</h4>
+					</div>
+					<div class="hb-panel-selector">
+						<select ng-model="vm.listOrder" ng-change="vm.changeOrder()">
+							<option value="">Order by (creation date)</option>
+							<option value="decreasing">most voted z > a</option>
+							<option value="increasing">less voted a > z</option>
+						</select>
+					</div>
+					<div class="hb-panel-intro">
+						<strong>{{vm.links.length}}</strong> links total!
+						<br>
+						<span ng-click="vm.toggleExtras();" title="toggle extras">
+							<i class="fa fa-eye" aria-hidden="true" ng-show="vm.showExtras"></i>
+							<i class="fa fa-eye-slash" aria-hidden="true" ng-show="!vm.showExtras"></i>
+						</span>
+					</div>
+				</div>
+				<div class="hb-panel-content">
+					<ul class="hb-links-list">
+						<li ng-repeat="link in vm.linksPaged track by $index">
+							<div class="hb-link hb-cf">
+								<div class="hb-link-votes">
+									<span><strong>{{link.votes_count}}</strong>
+									<br>
+									<small>votes</small></span>
+								</div>
+								<div class="hb-link-details">
+									<h5 title="{{link.tagline}}">{{link.name}}</h5>
+									<div class="hb-link-extras" ng-show="vm.showExtras" ng-cloak>
+										<span><u>created at</u>: <strong>{{link.created_at | date: 'dd.MM.yyyy'}}</strong> <strong>{{link.created_at | date: 'HH:mm:ss'}}</strong></span>
+										<span><u>last voted at</u>: <strong>{{link.last_voted_at | date: 'dd.MM.yyyy'}}</strong> <strong>{{link.last_voted_at | date: 'HH:mm:ss'}}</strong></span>
+									</div>
+									<div class="hb-push-bottom push-kindly">
+										<a ng-href="{{link.redirect_url}}"><small>{{link.redirect_url}}</small></a>
+									</div>
+									<div class="hb-cf">
+										<span ng-show="link.current_user_voted" class="color-success" title="You voted for this item">
+											<i class="fa fa-check" aria-hidden="true"></i>
+										</span>
+										<button type="button" class="button hb-button-plain skip-padding u-pull-right" ng-click="vm.downVote(link,$index)" ng-show="link.current_user_voted">
+											<i class="fa fa-chevron-down" aria-hidden="true"></i> downvote
+										</button>
+										<button type="button" class="button hb-button-plain skip-padding u-pull-right" ng-click="vm.upVote(link,$index)" ng-show="!link.current_user_voted">
+											<i class="fa fa-chevron-up" aria-hidden="true"></i> upvote
+										</button>
+									</div>
+								</div>
+								<div class="hb-link-remove">
+									<button type="button" class="button hb-button-plain icon-button" ng-click="vm.removeLinkPrelude(link,$index)" ng-disabled="vm.disableRemove" title="Remove item">
+										<i class="fa fa-minus-circle" aria-hidden="true"></i>
+									</button>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="hb-panel-footer">
+					<!-- pagination -->
+					<div>
+						<hb-link-vote-pagination num-items="{{vm.links.length}}" items-per-page="{{vm.paginationData.itemsPerPage}}" current-page="vm.paginationData.currentPage" update-page-data="vm.getItems(page)"></hb-link-vote-pagination>
+					</div>
+				</div>
+			</div>			
+			<!-- end :: panel instance -->
 
-
-<!-- pagination -->
-<hb-link-vote-pagination num-items="{{vm.links.length}}" items-per-page="{{vm.paginationData.itemsPerPage}}" current-page="vm.paginationData.currentPage" update-page-data="vm.getItems(page)"></hb-link-vote-pagination>
-
-
-<div ng-hide="0===vm.links.length">
-	<select ng-model="vm.listOrder" ng-change="vm.changeOrder()">
-		<option value="">Order by (creation date)</option>
-		<option value="decreasing">most voted z > a</option>
-		<option value="increasing">less voted a > z</option>
-	</select>
-</div>
-<ol>
-	<li ng-repeat="link in vm.linksPaged" style="border:1px solid #ccc;margin-bottom:10px;padding:0px 10px;">
-		<div>
-			<p>		
-				<u><strong>name</strong></u>: {{link.name}} <br>
-				<u><strong>votes</strong></u>: {{link.votes_count}} <br>
-				<u><strong>current_user_voted</strong></u>: {{link.current_user_voted}} <br>
-				<u><strong>last_voted_at</strong></u>: 
-					<span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#888;color:#fff;">{{link.last_voted_at | date: 'dd.MM.yyyy'}}</span> <span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#888;color:#fff;">{{link.last_voted_at | date: 'HH:mm:ss'}}</span> <br>
-				<u><strong>id</strong></u>: {{link.id}} <br>
-				<u><strong>created_at</strong></u>: 
-					<span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#333;color:#fff;">{{link.created_at | date: 'dd.MM.yyyy'}}</span> <span style="font-size:12px;line-height:16px;font-weight:bold;display:inline-block;padding:4px;background-color:#333;color:#fff;">{{link.created_at | date: 'HH:mm:ss'}}</span> <br>
-				<u><strong>link</strong></u>: {{link.redirect_url}}
-			</p>
-			<p>
-				<button type="button" ng-click="vm.removeLinkPrelude(link,$index)" ng-disabled="vm.disableRemove">remove</button>
-				<button type="button" ng-click="vm.downVote(link,$index)" ng-show="link.current_user_voted">downvote</button>
-				<button type="button" ng-click="vm.upVote(link,$index)" ng-show="!link.current_user_voted">upvote</button>
-			</p>			
 		</div>
-	</li>
-</ol>
-
-
-
-
-
-
+	</div>
+</div>

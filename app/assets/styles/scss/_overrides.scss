@@ -1,0 +1,29 @@
+// overrides
+
+
+// set app container width
+.container {
+
+	max-width: $container-width;
+
+}
+
+// corrected skeleton stabndalone clearfix'er
+.hb-cf {
+
+	&:after {
+
+		content: "";
+		display: table;
+		clear: both;
+
+	}
+
+}
+
+// reset headings
+h1, h2, h3, h4, h5, h6 {
+
+	font-weight: 600;
+
+}

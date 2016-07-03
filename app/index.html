@@ -25,23 +25,39 @@
 <body>
 
 	<!-- app main wrapper -->
-	<div id="hb-link-vote-app-wrapper">
+	<div id="hb-link-vote-wrapper">
 
-		<header>
-			<p>app header</p>
-			<nav>
-				<a href="#!/">home</a>
-				<a href="#!/add">add</a>
-			</nav>
-			<hr>
+		<!-- app header -->
+		<header class="hb-link-vote-header hb-push-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="twelve columns">
+						<nav class="hb-link-vote-nav u-pull-left">
+							<a href="#!/" title="Home" class="button hb-button-plain"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
+							<a href="#!/add" title="Submit a link" class="button hb-button-plain hb-submit-link"><i class="fa fa-plus" aria-hidden="true"></i> SUBMIT LINK</a>
+						</nav>
+						<div class="u-pull-right">
+							<span>Link<strong>VOTE</strong> Challenge</span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</header>		
 
 		<!-- app views -->
-		<div ng-view></div>
+		<main class="hb-link-vote-content hb-push-bottom">
+			<div ng-view></div>			
+		</main>
 		
-		<footer>
-			<hr>
-			<p>app footer</p>
+		<!-- app header -->
+		<footer class="hb-link-vote-footer text-center">
+			<div class="container">
+				<div class="row">
+					<div class="twelve columns">
+						<span>Link Vote Challenge - 2016</span>
+					</div>
+				</div>
+			</div>
 		</footer>
 		
 	</div>

@@ -1,5 +1,205 @@
-.red {
-  color: red;
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
 }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.hb-link-vote-header {
+  border-bottom: 1px solid #f4f4f4;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.hb-link-vote-footer {
+  border-top: 1px solid #f4f4f4;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.hb-link-vote-nav a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-weight: 400;
+}
+.hb-link-vote-nav a:last-child {
+  margin-right: 0;
+}
+.hb-link-vote-nav .hb-submit-link {
+  color: #ffffff;
+  background-color: #e61f3b;
+}
+
+.hb-panel {
+  border: 1px solid #f4f4f4;
+}
+.hb-panel .hb-panel-header,
+.hb-panel .hb-panel-content,
+.hb-panel .hb-panel-footer {
+  padding: 1rem;
+}
+.hb-panel .hb-panel-header {
+  text-align: center;
+  background-color: #f4f4f4;
+}
+.hb-panel .hb-panel-header select,
+.hb-panel .hb-panel-header h4 {
+  margin: 0 0 1rem 0;
+}
+
+.hb-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.hb-links-list li {
+  margin-bottom: 0;
+}
+.hb-links-list li:last-child .hb-link {
+  border-bottom: none;
+}
+.hb-links-list .hb-link {
+  position: relative;
+  border-bottom: 1px solid #f4f4f4;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+}
+.hb-links-list .hb-link:hover {
+  background-color: #f9f9f9;
+}
+.hb-links-list .hb-link:hover .hb-link-remove {
+  display: block;
+}
+.hb-links-list .hb-link h5 {
+  margin: 0;
+}
+.hb-links-list .hb-link .hb-link-votes,
+.hb-links-list .hb-link .hb-link-details {
+  position: relative;
+  float: left;
+}
+.hb-links-list .hb-link .hb-link-votes {
+  width: 6rem;
+  min-height: 6rem;
+  margin-right: 1rem;
+  text-align: center;
+  line-height: 1.2;
+}
+.hb-links-list .hb-link .hb-link-votes span {
+  display: block;
+  border-right: 1px dotted #c4c4c4;
+  padding: 1rem;
+}
+.hb-links-list .hb-link .hb-link-details {
+  padding-right: 1rem;
+  width: calc( 100% - 6rem - 2rem * .5 );
+}
+.hb-links-list .hb-link .hb-link-details a {
+  word-break: break-all;
+  line-height: 1;
+  color: #c4c4c4;
+}
+.hb-links-list .hb-link .hb-link-remove {
+  display: none;
+  position: absolute;
+  right: -14px;
+  top: -12px;
+}
+.hb-links-list .hb-link .hb-link-remove button {
+  color: #ca1717;
+}
+.hb-links-list .hb-link .hb-link-extras {
+  font-size: 1.1rem;
+  color: #deba06;
+  line-height: 1;
+}
+
+.hb-button-plain {
+  border: 1px solid transparent !important;
+  margin: 0;
+  text-transform: none;
+  padding: 0 10px;
+  height: 28px;
+  line-height: 28px;
+}
+.hb-button-plain:hover {
+  border: 1px solid transparent !important;
+}
+.hb-button-plain.skip-padding {
+  padding: 0;
+}
+.hb-button-plain.icon-button {
+  font-size: 1.5rem;
+}
+
+.hb-push-bottom {
+  margin-bottom: 3rem;
+}
+.hb-push-bottom.push-kindly {
+  margin-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.color-error {
+  color: #ca1717;
+}
+
+.color-warning {
+  color: #f9d41e;
+}
+
+.color-success {
+  color: #8ad429;
+}
+
+.container {
+  max-width: 640px;
+}
+
+.hb-cf:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+/* Larger than mobile */
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+  .hb-panel-title {
+    width: 50%;
+    position: relative;
+    float: left;
+    text-align: left;
+  }
+
+  .hb-panel-selector {
+    width: 50%;
+    position: relative;
+    float: right;
+    text-align: right;
+  }
+
+  .hb-panel-intro {
+    width: 100%;
+    clear: both;
+    padding-top: 0.5rem;
+  }
+}
+/* Larger than tablet */
+/* Larger than desktop */
+/* Larger than Desktop HD */
 
 /*# sourceMappingURL=linkvotechallenge.main.css.map */
