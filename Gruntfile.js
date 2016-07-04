@@ -48,7 +48,8 @@ module.exports = function( grunt ) {
 						'app/views/_*/view-*.html',
 						'app/common/_*/template-*.html',
 						'app/services/*.js',
-						'app/core/*.js'
+						'app/core/*.js',
+						'app/assets/styles/css/linkvotechallenge.main.css'
 					]
 				},
 				options: {
