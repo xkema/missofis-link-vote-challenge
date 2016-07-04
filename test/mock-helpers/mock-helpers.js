@@ -10,7 +10,8 @@ var MockHelpers = ( function() {
 		getSingleItem: _getSingleItem,
 		getItemsUnsorted: _getItemsUnsorted,
 		getItemsSortedByVotesCount: _getItemsSortedByVotesCount,
-		getItemsSortedByCreationDate: _getItemsSortedByCreationDate
+		getItemsSortedByCreationDate: _getItemsSortedByCreationDate,
+		getAddLinkFormData: _getAddLinkFormData
 
 	};
 
@@ -62,6 +63,18 @@ var MockHelpers = ( function() {
 			{ id: 1004, created_at: "2016-06-19T01:22:33.588-07:00", votes_count: 300, last_voted_at: "2016-06-20T01:22:33.588-07:00" },
 			{ id: 1002, created_at: "2016-06-08T01:22:33.588-07:00", votes_count: 600, last_voted_at: "2016-06-09T01:22:33.588-07:00" }
 		];
+
+	}
+
+	/**
+	 * Returns add link form data
+	 */
+	function _getAddLinkFormData() {
+
+		return {
+			linkName: 'at-' + Date.now(),
+			linkUrl: 'http://at-' + Date.now() + '.com'
+		};
 
 	}
 

@@ -26,7 +26,10 @@
 		
 		// controller bindables
 		vm.disableAdd = false;
-		vm.formData = { linkName: 'at-'+Date.now(), linkUrl: 'http://at-'+Date.now()+'.com' };
+		vm.formData = {
+			linkName: 'at-' + Date.now(),
+			linkUrl: 'http://at-' + Date.now() + '.com'
+		};
 
 		// controller api
 		vm.addLink = _addLink;
