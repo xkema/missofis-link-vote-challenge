@@ -115,7 +115,6 @@ select {
 	.mso-panel-footer {
 
 		// display: block;
-		padding: $gap-instance * .5;
 
 	}
 
@@ -123,6 +122,7 @@ select {
 
 		text-align: center;
 		background-color: $color-gray-light;
+		padding: $gap-instance * .5;
 
 		select,
 		h4 {
@@ -135,9 +135,13 @@ select {
 
 	.mso-panel-content {
 
+		padding: $gap-instance * .5 0;
+
 	}
 
 	.mso-panel-footer {
+
+		padding: $gap-instance * .5;
 
 	}
 
@@ -206,8 +210,8 @@ select {
 
 		position: relative;
 		border-bottom: 1px solid $color-gray-light;
-		margin-bottom: 1rem;
-		padding: 1rem 0;
+		margin-bottom: 0;
+		padding: 1.5rem 0 1rem;
 
 		&:hover {
 
@@ -273,8 +277,8 @@ select {
 
 			display: none;
 			position: absolute;
-			right: -14px;
-			top: -12px;
+			right: -17px;
+			top: -13px;
 
 			button {
 

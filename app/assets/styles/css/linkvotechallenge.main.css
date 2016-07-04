@@ -56,18 +56,20 @@ select[disabled] {
 .mso-panel {
   border: 1px solid #f4f4f4;
 }
-.mso-panel .mso-panel-header,
-.mso-panel .mso-panel-content,
-.mso-panel .mso-panel-footer {
-  padding: 1rem;
-}
 .mso-panel .mso-panel-header {
   text-align: center;
   background-color: #f4f4f4;
+  padding: 1rem;
 }
 .mso-panel .mso-panel-header select,
 .mso-panel .mso-panel-header h4 {
   margin: 0 0 1rem 0;
+}
+.mso-panel .mso-panel-content {
+  padding: 1rem 0;
+}
+.mso-panel .mso-panel-footer {
+  padding: 1rem;
 }
 .mso-panel .mso-no-links-info {
   margin-top: 2rem;
@@ -107,8 +109,8 @@ select[disabled] {
 .mso-links-list .mso-link {
   position: relative;
   border-bottom: 1px solid #f4f4f4;
-  margin-bottom: 1rem;
-  padding: 1rem 0;
+  margin-bottom: 0;
+  padding: 1.5rem 0 1rem;
 }
 .mso-links-list .mso-link:hover {
   background-color: #f9f9f9;
@@ -148,8 +150,8 @@ select[disabled] {
 .mso-links-list .mso-link .mso-link-remove {
   display: none;
   position: absolute;
-  right: -14px;
-  top: -12px;
+  right: -17px;
+  top: -13px;
 }
 .mso-links-list .mso-link .mso-link-remove button {
   color: #ca1717;
