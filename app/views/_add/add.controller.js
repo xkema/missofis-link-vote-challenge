@@ -86,13 +86,27 @@
 		// add items.json in one click
 		function _cheetah() {
 
+			// disable further removals for 1s
+			vm.disableAdd = true;
+
 			LinkVoteChallengeService
 				.getMockItemsData()
 				.then( function( response ) {
 
 					LinkVoteChallengeService.setAppData( { items: response.data.posts, userCheated: true }, false );
 
-					vm.isUserCheated = true;
+					// set timeout to wait localstorage update (~1s enough?)
+					$timeout( function() {
+
+						vm.isUserCheated = true;
+
+						// disable further removals for 1s
+						vm.disableAdd = false;
+
+						// @see toaster.controller.js
+						$rootScope.$emit( 'hb.showToaster', { toasterType: 'hb.simpleToast', message: 'You\'ve added <strong>25 items</strong> with some kind of poisonous elixir!' } );
+
+					}, 1000 );
 					
 				} );
 

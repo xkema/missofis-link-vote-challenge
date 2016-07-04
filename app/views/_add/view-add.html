@@ -32,8 +32,8 @@
 				<div class="hb-panel-footer">
 					<div ng-if="!vm.isUserCheated" class="hb-cheat-holder text-center">
 						<span><strong>drink the elixir?</strong></span>
-						<p class="hb-push-bottom push-kindly"><small>cheaterz gonna cheat, button feeds the sessionStorage monkey with an <em>items.json</em> for a single time.</small></p>
-						<button type="click" ng-click="vm.cheetah()"><i class="fa fa-flask" aria-hidden="true"></i> cheers!</button>
+						<p class="hb-push-bottom push-kindly"><small>cheaterz gonna cheat, button feeds the sessionStorage monkey with an <em>items.json</em> file for a single time.</small></p>
+						<button type="click" ng-disabled="vm.disableAdd" ng-click="vm.cheetah()"><i class="fa fa-flask" aria-hidden="true"></i> cheers!</button>
 					</div>
 				</div>
 			</div>			

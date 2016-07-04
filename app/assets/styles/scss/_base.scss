@@ -26,11 +26,12 @@ body {
 }
 
 // disabled buttons
-button {
+button,
+select {
 
 	&[disabled] {
 
-		opacity: 0.4;
+		opacity: 0.5;
 		cursor: default;
 		border-color: $color-gray-medium;
 		outline: 0;
@@ -91,7 +92,7 @@ button {
 	.hb-submit-link {
 
 		color: #ffffff;
-		background-color: $color-pinkie;
+		background-color: $color-pinkish;
 
 	}
 

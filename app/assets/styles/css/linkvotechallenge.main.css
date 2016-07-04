@@ -9,8 +9,9 @@ html {
   box-sizing: inherit;
 }
 
-button[disabled] {
-  opacity: 0.4;
+button[disabled],
+select[disabled] {
+  opacity: 0.5;
   cursor: default;
   border-color: #c4c4c4;
   outline: 0;

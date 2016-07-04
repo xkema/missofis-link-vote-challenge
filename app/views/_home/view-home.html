@@ -9,7 +9,7 @@
 						<h4>Recent Posts</h4>
 					</div>
 					<div class="hb-panel-selector">
-						<select ng-model="vm.listOrder" ng-change="vm.changeOrder()">
+						<select ng-model="vm.listOrder" ng-change="vm.changeOrder()" ng-disabled="vm.links.length<2">
 							<option value="">Order by (creation date)</option>
 							<option value="decreasing">most voted z > a</option>
 							<option value="increasing">less voted a > z</option>
@@ -18,7 +18,7 @@
 					<div class="hb-panel-intro">
 						<strong>{{vm.links.length}}</strong> links total!
 						<br>
-						<span ng-click="vm.toggleExtras();" title="toggle extras">
+						<span ng-click="vm.toggleExtras();" title="toggle extras" ng-show="0!==vm.links.length">
 							<i class="fa fa-eye" aria-hidden="true" ng-show="vm.showExtras"></i>
 							<i class="fa fa-eye-slash" aria-hidden="true" ng-show="!vm.showExtras"></i>
 						</span>
@@ -63,7 +63,7 @@
 						</li>
 					</ul>
 					<div class="hb-no-links-info text-center" ng-show="vm.links.length===0" ng-cloak>
-						<span>no links to show, use pinkie "<strong>submit link</strong>" button to add some..</span>
+						<span>no links to show, use pinkish "<strong>submit link</strong>" button to add some..</span>
 					</div>
 				</div>
 				<div class="hb-panel-footer">
