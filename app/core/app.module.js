@@ -7,8 +7,7 @@
 
 	angular.module( 'com.hepsiburada.linkvotechallenge', [
 
-		'ngRoute',
-		'ngStorage'
+		'ngRoute'
 
 	] );
 

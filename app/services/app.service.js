@@ -9,12 +9,12 @@
 		.module( 'com.hepsiburada.linkvotechallenge' )
 		.factory( 'LinkVoteChallengeService', LinkVoteChallengeService );
 
-	LinkVoteChallengeService.$inject = [ '$http', '$localStorage' ];
+	LinkVoteChallengeService.$inject = [ '$http' ];
 
 	/**
 	 * LinkVoteChallenge
 	 */
-	function LinkVoteChallengeService( $http, $localStorage ) {
+	function LinkVoteChallengeService( $http ) {
 
 		// reveal service api
 		return {
