@@ -11,7 +11,8 @@ var MockHelpers = ( function() {
 		getItemsUnsorted: _getItemsUnsorted,
 		getItemsSortedByVotesCount: _getItemsSortedByVotesCount,
 		getItemsSortedByCreationDate: _getItemsSortedByCreationDate,
-		getAddLinkFormData: _getAddLinkFormData
+		getAddLinkFormData: _getAddLinkFormData,
+		getToasterEventData: _getToasterEventData
 
 	};
 
@@ -72,10 +73,27 @@ var MockHelpers = ( function() {
 	function _getAddLinkFormData() {
 
 		return {
-			linkName: 'at-' + Date.now(),
-			linkUrl: 'http://at-' + Date.now() + '.com'
+			linkName: 'at-tester-data',
+			linkUrl: 'http://at-tester-data.com'
 		};
 
+	}
+
+	/**
+	 * Returns data for toaster event
+	 * 
+	 * @param toastType
+	 */
+	function _getToasterEventData( toastType ) {
+	
+		return {
+			toasterType: toastType,
+			targetItem: { item: {
+				name: _getAddLinkFormData().linkName,
+				redirect_url: _getAddLinkFormData().linkUrl
+			} }
+		};
+	
 	}
 
 } )();

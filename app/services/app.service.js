@@ -53,14 +53,26 @@
 		}
 
 		/**
-		 * Add item to storage object
+		 * Add item to storage object (decorates item object as _item)
 		 */
 		function _addItem( item ) {
+
+			var _item = {
+
+				id: Math.ceil( Math.random() * Date.now() ),
+				name: item.linkName,
+				redirect_url: item.linkUrl,
+				created_at: Date.now(),
+				votes_count: 0,
+				last_voted_at: null,
+				current_user_voted: false
+
+			};
 
 			var _appData = _getAppData();
 
 			// originally a service query w|itemId :)
-			_appData.items.unshift( item );
+			_appData.items.unshift( _item );
 
 			_setAppData( { items: _appData.items }, true );
 

@@ -50,17 +50,12 @@
 
 			var _item = {
 
-				id: Math.ceil( Math.random() * Date.now() ),
 				name: vm.formData.linkName,
-				redirect_url: vm.formData.linkUrl,
-				created_at: Date.now(),
-				votes_count: 0,
-				last_voted_at: null,
-				current_user_voted: false
+				redirect_url: vm.formData.linkUrl
 
 			};
 
-			// add single item to storage
+			// add single item to storage (_itemAdded is dummy server response)
 			var _itemAdded = LinkVoteChallengeService.addItem( _item );
 
 			// disable further removals for 1s
