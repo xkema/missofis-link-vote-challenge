@@ -1,5 +1,5 @@
 /**
- * HbLinkVoteModalCtrl Controller
+ * MsoLinkVoteModalCtrl Controller
  */
 (function () {
 
@@ -7,14 +7,14 @@
 
 	angular
 		.module( 'com.missofis.linkvotechallenge' )
-		.controller( 'HbLinkVoteModalCtrl', HbLinkVoteModalCtrl );
+		.controller( 'MsoLinkVoteModalCtrl', MsoLinkVoteModalCtrl );
 
-	HbLinkVoteModalCtrl.$inject = [ '$log', '$scope', '$rootScope' ];
+	MsoLinkVoteModalCtrl.$inject = [ '$log', '$scope', '$rootScope' ];
 
 	/**
-	 * HbLinkVoteModalCtrl controller
+	 * MsoLinkVoteModalCtrl controller
 	 */
-	function HbLinkVoteModalCtrl( $log, $scope, $rootScope ) {
+	function MsoLinkVoteModalCtrl( $log, $scope, $rootScope ) {
 
 		var vm = this;
 
@@ -61,7 +61,7 @@
 
 			}
 
-			if( 'hb.removeItem' === _modalData.targetAction ) {
+			if( 'mso.removeItem' === _modalData.targetAction ) {
 
 				// @see home.controller.js
 				$rootScope.$emit( _modalData.targetAction, _modalData.targetItem );
@@ -77,10 +77,10 @@
 		 */
 		function _init() {
 			
-			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'HbLinkVoteModalCtrl' );
+			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'MsoLinkVoteModalCtrl' );
 
 			// listen to modal events
-			$rootScope.$on( 'hb.openModal', function( event, data ) {
+			$rootScope.$on( 'mso.openModal', function( event, data ) {
 
 				_modalData = data;
 

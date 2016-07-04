@@ -1,10 +1,10 @@
 <!-- pagination -->
-<div class="hb-pagination hb-push-bottom push-kindly">
-	<button class="hb-button-small-gap" ng-click="vm_.updatePage('prev')" ng-disabled="vm_.currentPage===1">
+<div class="mso-pagination mso-push-bottom push-kindly">
+	<button class="mso-button-small-gap" ng-click="vm_.updatePage('prev')" ng-disabled="vm_.currentPage===1">
 		<i class="fa fa-caret-left" aria-hidden="true"></i> prev
 	</button>
-	<span class="hb-pagination-indicator">{{vm_.currentPage}} of {{vm_.numPagesCalculated}}</span>
-	<button class="hb-button-small-gap" ng-click="vm_.updatePage('next')" ng-disabled="vm_.currentPage===vm_.numPagesCalculated">
+	<span class="mso-pagination-indicator">{{vm_.currentPage}} of {{vm_.numPagesCalculated}}</span>
+	<button class="mso-button-small-gap" ng-click="vm_.updatePage('next')" ng-disabled="vm_.currentPage===vm_.numPagesCalculated">
 		next <i class="fa fa-caret-right" aria-hidden="true"></i>
 	</button>
 </div>

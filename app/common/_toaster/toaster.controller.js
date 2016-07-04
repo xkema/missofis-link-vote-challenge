@@ -1,5 +1,5 @@
 /**
- * HbLinkVoteToasterCtrl Controller
+ * MsoLinkVoteToasterCtrl Controller
  */
 (function () {
 
@@ -7,14 +7,14 @@
 
 	angular
 		.module( 'com.missofis.linkvotechallenge' )
-		.controller( 'HbLinkVoteToasterCtrl', HbLinkVoteToasterCtrl );
+		.controller( 'MsoLinkVoteToasterCtrl', MsoLinkVoteToasterCtrl );
 
-	HbLinkVoteToasterCtrl.$inject = [ '$log', '$scope', '$rootScope', '$timeout', '$sce' ];
+	MsoLinkVoteToasterCtrl.$inject = [ '$log', '$scope', '$rootScope', '$timeout', '$sce' ];
 
 	/**
-	 * HbLinkVoteToasterCtrl controller
+	 * MsoLinkVoteToasterCtrl controller
 	 */
-	function HbLinkVoteToasterCtrl( $log, $scope, $rootScope, $timeout, $sce ) {
+	function MsoLinkVoteToasterCtrl( $log, $scope, $rootScope, $timeout, $sce ) {
 
 		var vm = this;
 
@@ -45,19 +45,19 @@
 		 */
 		function _init() {
 			
-			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'HbLinkVoteToasterCtrl' );
+			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'MsoLinkVoteToasterCtrl' );
 
 			// listen to modal events
-			$rootScope.$on( 'hb.showToaster', function( event, data ) {
+			$rootScope.$on( 'mso.showToaster', function( event, data ) {
 
-				if( 'hb.itemAdded' === data.toasterType ) {
+				if( 'mso.itemAdded' === data.toasterType ) {
 					vm.toasterMessage = $sce.trustAsHtml( '"<strong>' + data.targetItem.item.name + '"</strong> item added!' );
 				}
 
-				else if( 'hb.itemRemoved' === data.toasterType ) {
+				else if( 'mso.itemRemoved' === data.toasterType ) {
 					vm.toasterMessage = $sce.trustAsHtml( 'Item "<strong>' + data.targetItem.item.name + '</strong>" removed succesfully!' );
 				}
-				else if( 'hb.simpleToast' === data.toasterType ) {
+				else if( 'mso.simpleToast' === data.toasterType ) {
 					vm.toasterMessage = $sce.trustAsHtml( data.message );
 				}
 				else {

@@ -1,5 +1,5 @@
 /**
- * HbLinkVotePaginationCtrl Controller
+ * MsoLinkVotePaginationCtrl Controller
  */
 (function () {
 
@@ -7,14 +7,14 @@
 
 	angular
 		.module( 'com.missofis.linkvotechallenge' )
-		.controller( 'HbLinkVotePaginationCtrl', HbLinkVotePaginationCtrl );
+		.controller( 'MsoLinkVotePaginationCtrl', MsoLinkVotePaginationCtrl );
 
-	HbLinkVotePaginationCtrl.$inject = [ '$log', '$scope' ];
+	MsoLinkVotePaginationCtrl.$inject = [ '$log', '$scope' ];
 
 	/**
-	 * HbLinkVotePaginationCtrl controller
+	 * MsoLinkVotePaginationCtrl controller
 	 */
-	function HbLinkVotePaginationCtrl( $log, $scope ) {
+	function MsoLinkVotePaginationCtrl( $log, $scope ) {
 
 		var vm = this;
 
@@ -74,7 +74,7 @@
 		 */
 		function _init() {
 			
-			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'HbLinkVotePaginationCtrl' );
+			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'MsoLinkVotePaginationCtrl' );
 
 			$scope.$watch( 'vm_.numItems', function( newValue, oldValue ) {
 

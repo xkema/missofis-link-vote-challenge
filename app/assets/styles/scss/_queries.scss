@@ -5,9 +5,9 @@
 /* Larger than */
 @media (min-width: 400px) {
 
-	.hb-pagination {
+	.mso-pagination {
 
-		.hb-pagination-indicator {
+		.mso-pagination-indicator {
 
 			display: inline-block;
 			min-width: $pagination-indicator-min-width;
@@ -28,7 +28,7 @@
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {
 
-	.hb-panel-title {
+	.mso-panel-title {
 
 		width: 50%;
 		position: relative;
@@ -43,7 +43,7 @@
 
 	}
 
-	.hb-panel-selector {
+	.mso-panel-selector {
 
 		width: 50%;
 		position: relative;
@@ -52,7 +52,7 @@
 
 	}
 
-	.hb-panel-intro {
+	.mso-panel-intro {
 
 		width: 100%;
 		clear: both;
@@ -61,7 +61,7 @@
 	}
 
 	// component :: modal content
-	.hb-modal-content {
+	.mso-modal-content {
 
 		width: $modal-width;
 		margin-left: -$modal-width * .5;
@@ -69,7 +69,7 @@
 	}
 
 	// component :: toaster
-	.hb-toaster-content {
+	.mso-toaster-content {
 
 		right: 2.5rem;
 		width: $toaster-width;
@@ -80,14 +80,14 @@
 	}
 
 	// header items
-	.hb-link-vote-logo {
+	.mso-link-vote-logo {
 
 		float: right;
 		margin-bottom: 0;
 
 	}
 
-	.hb-link-vote-nav {
+	.mso-link-vote-nav {
 
 		float: left;
 

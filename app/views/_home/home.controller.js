@@ -122,7 +122,7 @@
 			var _indexInOriginalArray = index + ( vm.paginationData.currentPage - 1 ) * vm.paginationData.itemsPerPage;
 
 			// @see modal.controller.js
-			$rootScope.$emit( 'hb.openModal', { targetAction: 'hb.removeItem', targetItem: { item: item, index: _indexInOriginalArray } } );
+			$rootScope.$emit( 'mso.openModal', { targetAction: 'mso.removeItem', targetItem: { item: item, index: _indexInOriginalArray } } );
 
 		}
 
@@ -147,7 +147,7 @@
 					vm.links.splice( index, 1 );
 
 					// @see toaster.controller.js
-					$rootScope.$emit( 'hb.showToaster', { toasterType: 'hb.itemRemoved', targetItem: { item: item } } );
+					$rootScope.$emit( 'mso.showToaster', { toasterType: 'mso.itemRemoved', targetItem: { item: item } } );
 
 				}
 
@@ -201,7 +201,7 @@
 			if( 0 === vm.links.length ) {
 
 				// @see toaster.controller.js
-				$rootScope.$emit( 'hb.showToaster', { toasterType: 'hb.simpleToast', message: 'No items to list, add some!' } );
+				$rootScope.$emit( 'mso.showToaster', { toasterType: 'mso.simpleToast', message: 'No items to list, add some!' } );
 
 			}
 
@@ -212,7 +212,7 @@
 			} );
 
 			// listen to modal events
-			$rootScope.$on( 'hb.removeItem', function( event, data ) {
+			$rootScope.$on( 'mso.removeItem', function( event, data ) {
 
 				_removeLink( data.item, data.index );
 

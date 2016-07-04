@@ -7,12 +7,12 @@
 
 	angular
 		.module( 'com.missofis.linkvotechallenge' )
-		.component( 'hbLinkVoteModal', {
+		.component( 'msoLinkVoteModal', {
 
 			templateUrl: function() {
 				return 'common/_modal/template-modal.html';
 			},
-			controller: 'HbLinkVoteModalCtrl',
+			controller: 'MsoLinkVoteModalCtrl',
 			controllerAs: 'vm_'
 
 		} );

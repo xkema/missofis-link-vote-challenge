@@ -160,8 +160,8 @@
 
 			};
 
-			if( null === sessionStorage.getItem( 'hblinkvotechallenge' ) ) {
-				sessionStorage.setItem( 'hblinkvotechallenge', JSON.stringify( _appData ) );
+			if( null === sessionStorage.getItem( 'mso-linkvotechallenge' ) ) {
+				sessionStorage.setItem( 'mso-linkvotechallenge', JSON.stringify( _appData ) );
 			}
 
 		}
@@ -171,7 +171,7 @@
 		 */
 		function _getAppData() {
 
-			return JSON.parse( sessionStorage.getItem( 'hblinkvotechallenge' ) );
+			return JSON.parse( sessionStorage.getItem( 'mso-linkvotechallenge' ) );
 
 		}
 
@@ -195,7 +195,7 @@
 				_appData.userCheated = data.userCheated;
 			}
 
-			sessionStorage.setItem( 'hblinkvotechallenge', JSON.stringify( _appData ) );
+			sessionStorage.setItem( 'mso-linkvotechallenge', JSON.stringify( _appData ) );
 
 		}
 

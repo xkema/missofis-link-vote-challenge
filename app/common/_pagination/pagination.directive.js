@@ -7,18 +7,18 @@
 
 	angular
 		.module( 'com.missofis.linkvotechallenge' )
-		.directive( 'hbLinkVotePagination', hbLinkVotePagination );
+		.directive( 'msoLinkVotePagination', msoLinkVotePagination );
 
 	/**
 	 * 
 	 */
-	function hbLinkVotePagination() {
+	function msoLinkVotePagination() {
 
 		return {
 
 			templateUrl: 'common/_pagination/template-pagination.html',
 			restrict: 'E',
-			controller: 'HbLinkVotePaginationCtrl',
+			controller: 'MsoLinkVotePaginationCtrl',
 			controllerAs: 'vm_',
 			bindToController: true,
 			scope: {

@@ -41,7 +41,7 @@ select {
 }
 
 // header
-.hb-link-vote-header {
+.mso-link-vote-header {
 
 	border-bottom: 1px solid $color-gray-light;
 	padding-top: $gap-instance * .75;
@@ -52,13 +52,13 @@ select {
 }
 
 // content 
-.hb-link-vote-content {
+.mso-link-vote-content {
 
 
 }
 
 // footer 
-.hb-link-vote-footer {
+.mso-link-vote-footer {
 
 	border-top: 1px solid $color-gray-light;
 	padding-top: 2rem;
@@ -71,7 +71,7 @@ select {
 }
 
 // navigation
-.hb-link-vote-nav {
+.mso-link-vote-nav {
 
 	a {
 
@@ -89,7 +89,7 @@ select {
 
 	}
 
-	.hb-submit-link {
+	.mso-submit-link {
 
 		color: #ffffff;
 		background-color: $color-pinkish;
@@ -99,27 +99,27 @@ select {
 }
 
 // logo text
-.hb-link-vote-logo {
+.mso-link-vote-logo {
 
 	margin-bottom: $gap-instance * .5;
 
 }
 
 // component :: panel
-.hb-panel {
+.mso-panel {
 
 	border: 1px solid $color-gray-light;
 
-	.hb-panel-header,
-	.hb-panel-content,
-	.hb-panel-footer {
+	.mso-panel-header,
+	.mso-panel-content,
+	.mso-panel-footer {
 
 		// display: block;
 		padding: $gap-instance * .5;
 
 	}
 
-	.hb-panel-header {
+	.mso-panel-header {
 
 		text-align: center;
 		background-color: $color-gray-light;
@@ -133,15 +133,15 @@ select {
 
 	}
 
-	.hb-panel-content {
+	.mso-panel-content {
 
 	}
 
-	.hb-panel-footer {
+	.mso-panel-footer {
 
 	}
 
-	.hb-no-links-info {
+	.mso-no-links-info {
 
 		margin-top: $gap-instance;
 		// margin-bottom: $gap-instance;
@@ -151,7 +151,7 @@ select {
 }
 
 // add link form
-.hb-add-link-form {
+.mso-add-link-form {
 
 	padding: $gap-instance * .5 0 0;
 	position: relative;
@@ -168,7 +168,7 @@ select {
 }
 
 // cheats holder
-.hb-cheat-holder {
+.mso-cheat-holder {
 
 	width: 75%;
 	position: relative;
@@ -180,7 +180,7 @@ select {
 }
 
 // component :: links list
-.hb-links-list { // <ul> element
+.mso-links-list { // <ul> element
 
 	list-style: none;
 	padding: 0;
@@ -192,7 +192,7 @@ select {
 
 		&:last-child {
 
-			.hb-link {
+			.mso-link {
 
 				border-bottom: none;
 				
@@ -202,7 +202,7 @@ select {
 
 	}
 
-	.hb-link {
+	.mso-link {
 
 		position: relative;
 		border-bottom: 1px solid $color-gray-light;
@@ -213,7 +213,7 @@ select {
 
 			background-color: lighten( $color-gray-light, 2% );
 
-			.hb-link-remove {
+			.mso-link-remove {
 
 				display: block;
 
@@ -227,15 +227,15 @@ select {
 
 		}
 
-		.hb-link-votes,
-		.hb-link-details {
+		.mso-link-votes,
+		.mso-link-details {
 
 			position: relative;
 			float: left;
 
 		}
 
-		.hb-link-votes {
+		.mso-link-votes {
 
 			width: $width-votes-holder;
 			min-height: $width-votes-holder;
@@ -252,7 +252,7 @@ select {
 			}
 		}
 
-		.hb-link-details {
+		.mso-link-details {
 
 			padding-right: $gap-instance * .5;
 
@@ -269,7 +269,7 @@ select {
 
 		}
 
-		.hb-link-remove {
+		.mso-link-remove {
 
 			display: none;
 			position: absolute;
@@ -284,7 +284,7 @@ select {
 
 		}
 
-		.hb-link-extras {
+		.mso-link-extras {
 
 			font-size: 1.1rem;
 			color: darken( $color-warning, 10% );
@@ -297,13 +297,13 @@ select {
 }
 
 // component :: pagination
-.hb-pagination {
+.mso-pagination {
 
 	text-align: center;
 	border-top: 1px dotted $color-gray-light;
 	padding-top: $gap-instance * 1.5;
 
-	.hb-pagination-indicator {
+	.mso-pagination-indicator {
 
 		display: inline-block;
 		min-width: $pagination-indicator-min-width;
@@ -313,7 +313,7 @@ select {
 }
 
 // component :: plain button (uses skeleton base)
-.hb-button-plain {
+.mso-button-plain {
 
 	border: 1px solid transparent !important;
 	margin: 0;
@@ -343,7 +343,7 @@ select {
 }
 
 // component :: modal overlay
-.hb-modal-overlay {
+.mso-modal-overlay {
 
 	background-color: rgba( 0, 0, 0, .35 );
 	position: fixed;
@@ -356,7 +356,7 @@ select {
 }
 
 // component :: modal content
-.hb-modal-content {
+.mso-modal-content {
 
 	background-color: $color-gray-light;
 	position: fixed;
@@ -371,7 +371,7 @@ select {
 }
 
 // component :: toaster
-.hb-toaster-content {
+.mso-toaster-content {
 
 	position: fixed;
 	bottom: 2.5rem;
@@ -406,7 +406,7 @@ select {
 }
 
 // utitlities :: margin provider
-.hb-push-bottom {
+.mso-push-bottom {
 
 	margin-bottom: $gap-instance * 1.5;
 
@@ -433,7 +433,7 @@ select {
 }
 
 // utilities :: button small gap
-.hb-button-small-gap {
+.mso-button-small-gap {
 
 	padding-left: $button-small-pad-gap;
 	padding-right: $button-small-pad-gap;

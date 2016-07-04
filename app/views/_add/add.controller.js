@@ -72,7 +72,7 @@
 				if( _itemAdded ) {
 
 					// @see toaster.controller.js
-					$rootScope.$emit( 'hb.showToaster', { toasterType: 'hb.itemAdded', targetItem: { item: _item } } );
+					$rootScope.$emit( 'mso.showToaster', { toasterType: 'mso.itemAdded', targetItem: { item: _item } } );
 
 					// clear form
 					vm.formData = { linkName: '', linkUrl: '' };
@@ -104,7 +104,7 @@
 						vm.disableAdd = false;
 
 						// @see toaster.controller.js
-						$rootScope.$emit( 'hb.showToaster', { toasterType: 'hb.simpleToast', message: 'You\'ve added <strong>25 items</strong> with some kind of poisonous elixir!' } );
+						$rootScope.$emit( 'mso.showToaster', { toasterType: 'mso.simpleToast', message: 'You\'ve added <strong>25 items</strong> with some kind of poisonous elixir!' } );
 
 					}, 1000 );
 					

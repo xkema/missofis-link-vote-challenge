@@ -7,12 +7,12 @@
 
 	angular
 		.module( 'com.missofis.linkvotechallenge' )
-		.component( 'hbLinkVoteToaster', {
+		.component( 'msoLinkVoteToaster', {
 
 			templateUrl: function() {
 				return 'common/_toaster/template-toaster.html';
 			},
-			controller: 'HbLinkVoteToasterCtrl',
+			controller: 'MsoLinkVoteToasterCtrl',
 			controllerAs: 'vm_'
 
 		} );

@@ -1,4 +1,4 @@
-hb-link-vote-challenge
+missofis-link-vote-challenge
 ====
 
 Introductional description.
