@@ -1,29 +1,44 @@
-<h1>add</h1>
+<div class="container">
+	<div class="row">
+		<div class="twelve columns">
 
-<div>
-	
-	<a href="#!/">Return to List</a>
-	<h2>Add New Link</h2>
-	<p>feed app data with adding items one by one</p>
-	<form ng-submit="vm.addLink()">
-		<div>
-			<label for="hb-link-name">Link Name:</label>
-			<input type="text" placeholder="e.g Alphabet" id="hb-link-name" ng-model="vm.formData.linkName" required>
-		</div>
-		<div>
-			<label for="hb-link-url">Link URL:</label>
-			<input type="url" placeholder="http://abc.xyz" id="hb-link-url" ng-model="vm.formData.linkUrl" required>
-		</div>
-		<button type="submit" ng-disabled="vm.disableAdd">add</button>
-	</form>
+			<!-- panel instance -->
+			<div class="hb-panel">
+				<div class="hb-panel-header hb-cf">
+					<div class="hb-panel-title panel-title-full">
+						<h4>Submit New Link</h4>
+					</div>
+					<div class="hb-panel-intro">
+						<span>feed app data with adding items <strong>one by one</strong></span>
+						<br>
+						<a href="#!/" class="button hb-button-plain"><i class="fa fa-arrow-left" aria-hidden="true"></i> back to list</a>
+					</div>
+				</div>
+				<div class="hb-panel-content">
+					<form class="hb-add-link-form" ng-submit="vm.addLink()">
+						<div>
+							<label for="hb-link-name">Link Name:</label>
+							<input type="text" placeholder="e.g Alphabet" id="hb-link-name" ng-model="vm.formData.linkName" required>
+						</div>
+						<div>
+							<label for="hb-link-url">Link URL:</label>
+							<input type="url" placeholder="http://abc.xyz" id="hb-link-url" ng-model="vm.formData.linkUrl" required>
+						</div>
+						<div class="hb-cf">
+							<button type="submit" ng-disabled="vm.disableAdd" class="u-pull-right"><i class="fa fa-plus" aria-hidden="true"></i> add</button>
+						</div>
+					</form>
+				</div>
+				<div class="hb-panel-footer">
+					<div ng-if="!vm.isUserCheated" class="hb-cheat-holder text-center">
+						<span><strong>drink the elixir?</strong></span>
+						<p class="hb-push-bottom push-kindly"><small>cheaterz gonna cheat, button feeds the sessionStorage monkey with an <em>items.json</em> for a single time.</small></p>
+						<button type="click" ng-click="vm.cheetah()"><i class="fa fa-flask" aria-hidden="true"></i> cheers!</button>
+					</div>
+				</div>
+			</div>			
+			<!-- end :: panel instance -->
 
-	
-	<div ng-if="!vm.isUserCheated">
-		<hr>
-		<h2>--or cheat--</h2>
-		<p>cheaterz gonna cheat! (feeds the sessionStorage monkey with items.json for a single time)</p>
-		<button type="click" ng-click="vm.cheetah()">cheat!</button>
-		<p>is:: {{vm}}</p>		
+		</div>
 	</div>
-
 </div>

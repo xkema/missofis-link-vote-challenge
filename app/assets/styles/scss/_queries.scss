@@ -35,6 +35,12 @@
 		float: left;
 		text-align: left;
 
+		&.panel-title-full {
+
+			width: 100%;
+
+		}
+
 	}
 
 	.hb-panel-selector {

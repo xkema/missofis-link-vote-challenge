@@ -68,9 +68,9 @@
 				</div>
 				<div class="hb-panel-footer">
 					<!-- pagination -->
-					<div ng-hide="vm.links.length===0" ng-cloak>
+					<div ng-hide="vm.links.length<=vm.paginationData.itemsPerPage" ng-cloak>
 						<hb-link-vote-pagination num-items="{{vm.links.length}}" items-per-page="{{vm.paginationData.itemsPerPage}}" current-page="vm.paginationData.currentPage" update-page-data="vm.getItems(page)"></hb-link-vote-pagination>
-					</div>					
+					</div>
 				</div>
 			</div>			
 			<!-- end :: panel instance -->

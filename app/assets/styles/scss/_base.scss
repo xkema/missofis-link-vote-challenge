@@ -21,6 +21,10 @@ html {
 
 }
 
+body {
+
+}
+
 // disabled buttons
 button {
 
@@ -42,6 +46,7 @@ button {
 	padding-top: $gap-instance * .75;
 	padding-bottom: $gap-instance * .75;
 	text-align: center;
+	box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, .05 );
 
 }
 
@@ -57,6 +62,10 @@ button {
 	border-top: 1px solid $color-gray-light;
 	padding-top: 2rem;
 	padding-bottom: 2rem;
+
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEX4+Pj09PQf/c7fAAAAGUlEQVR4XnXIMQ0AAACDMPyb3gxA0qswVX1+vw/xW46qyAAAAABJRU5ErkJggg==);
+	background-repeat: repeat;
+	background-position: left top;
 
 }
 
@@ -140,6 +149,35 @@ button {
 
 }
 
+// add link form
+.hb-add-link-form {
+
+	padding: $gap-instance * .5 0 0;
+	position: relative;
+	margin: 0 auto;
+	width: 75%;
+
+	input[type=text],
+	input[type=url], {
+
+		width: 100%;
+
+	}
+
+}
+
+// cheats holder
+.hb-cheat-holder {
+
+	width: 75%;
+	position: relative;
+	margin: 0 auto;
+	border-top: 1px solid $color-gray-light;
+	padding-top: $gap-instance;
+	padding-bottom: $gap-instance * .5;
+
+}
+
 // component :: links list
 .hb-links-list { // <ul> element
 
@@ -155,7 +193,7 @@ button {
 
 			.hb-link {
 
-				// border-bottom: none;
+				border-bottom: none;
 				
 			}
 
@@ -261,6 +299,8 @@ button {
 .hb-pagination {
 
 	text-align: center;
+	border-top: 1px dotted $color-gray-light;
+	padding-top: $gap-instance * 1.5;
 
 	.hb-pagination-indicator {
 
@@ -333,7 +373,7 @@ button {
 .hb-toaster-content {
 
 	position: fixed;
-	top: 2.5rem;
+	bottom: 2.5rem;
 	width: $toaster-width-mobile;
 	left: 50%;
 	margin-left: -$toaster-width-mobile * .5;
