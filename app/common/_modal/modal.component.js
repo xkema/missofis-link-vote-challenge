@@ -6,7 +6,7 @@
 	'use strict';
 
 	angular
-		.module( 'com.hepsiburada.linkvotechallenge' )
+		.module( 'com.missofis.linkvotechallenge' )
 		.component( 'hbLinkVoteModal', {
 
 			templateUrl: function() {

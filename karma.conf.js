@@ -1,4 +1,4 @@
-// karma test wrapper (hepsiburada link vote challenge)
+// karma test wrapper (link vote challenge)
 module.exports = function( config ) {
 
 	var _settings = {

@@ -6,7 +6,7 @@
 	'use strict';
 
 	angular
-		.module( 'com.hepsiburada.linkvotechallenge' )
+		.module( 'com.missofis.linkvotechallenge' )
 		.controller( 'HomeCtrl', HomeCtrl );
 
 	HomeCtrl.$inject = [ '$log', 'LinkVoteChallengeService', '$scope', '$timeout', '$rootScope' ];

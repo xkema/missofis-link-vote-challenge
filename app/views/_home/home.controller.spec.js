@@ -7,7 +7,7 @@ describe( 'UNIT ::  Controller Test : HomeCtrl', function() {
 		$scope;
 
 	beforeEach( function() {
-		angular.mock.module( 'com.hepsiburada.linkvotechallenge' );
+		angular.mock.module( 'com.missofis.linkvotechallenge' );
 		angular.mock.inject( function( $controller, $rootScope ) {
 			$scope = $rootScope.$new();
 			__controller = $controller( 'HomeCtrl', { $scope: $scope } );

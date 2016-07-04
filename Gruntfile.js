@@ -1,4 +1,4 @@
-// almighty grunt wrapper (hepsiburada link vote challenge)
+// almighty grunt wrapper (link vote challenge)
 module.exports = function( grunt ) {
 	
 	// project config.

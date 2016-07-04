@@ -1,11 +1,11 @@
 /**
- * hepsiburada link vote challenge main module
+ * link vote challenge main module
  */
 (function () {
 
 	'use strict';
 
-	angular.module( 'com.hepsiburada.linkvotechallenge', [
+	angular.module( 'com.missofis.linkvotechallenge', [
 
 		'ngRoute'
 

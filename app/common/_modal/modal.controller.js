@@ -6,7 +6,7 @@
 	'use strict';
 
 	angular
-		.module( 'com.hepsiburada.linkvotechallenge' )
+		.module( 'com.missofis.linkvotechallenge' )
 		.controller( 'HbLinkVoteModalCtrl', HbLinkVoteModalCtrl );
 
 	HbLinkVoteModalCtrl.$inject = [ '$log', '$scope', '$rootScope' ];

@@ -1,12 +1,12 @@
 /**
- * hepsiburada link vote challenge main module configuration
+ * link vote challenge main module configuration
  */
 (function () {
 
 	'use strict';
 
 	angular
-		.module( 'com.hepsiburada.linkvotechallenge' )
+		.module( 'com.missofis.linkvotechallenge' )
 		.config( configApp )
 		.run( runApp );
 
