@@ -6,30 +6,25 @@ describe( 'UNIT :: HomeCtrl', function() {
 	// @see `mock-helpers.js` for mock data helpers
 
 	var __HomeCtrl,
+		__AddCtrl,
 		__scope,
 		$rootScope,
 		$controller,
 		$timeout,
+		$httpBackend,
 		LinkVoteChallengeService;
 
 	beforeEach( function() {
 		angular.mock.module( 'com.missofis.linkvotechallenge' );
-		angular.mock.inject( function( _$rootScope_, _$controller_, _$timeout_, _LinkVoteChallengeService_ ) {
+		angular.mock.inject( function( _$rootScope_, _$controller_, _$timeout_, _$httpBackend_, _LinkVoteChallengeService_ ) {
 			$rootScope = _$rootScope_;
 			$controller = _$controller_;
 			$timeout = _$timeout_;
+			$httpBackend = _$httpBackend_;
 			LinkVoteChallengeService = _LinkVoteChallengeService_;
 			__scope = $rootScope.$new(); // re-initialize scope
-			__HomeCtrl = $controller( 'HomeCtrl', { $scope: __scope } );
+			__AddCtrl = $controller( 'AddCtrl' );
 		} );
-	} );
-
-	describe( 'HomeCtrl :: Creation', function() {
-		
-		it( 'should define a "links" property (hello world! test)', function() {
-			expect( __HomeCtrl.links ).toBeDefined();
-		} );
-		
 	} );
 
 	describe( 'HomeCtrl :: Behaviour', function() {
@@ -44,6 +39,16 @@ describe( 'UNIT :: HomeCtrl', function() {
 			_itemsSortedByCreationDate = MockHelpers.getItemsSortedByCreationDate();
 			_itemsSortedByVotesCount = MockHelpers.getItemsSortedByVotesCount();
 			_item = MockHelpers.getSingleItem();
+			// cheat & add 4 items before each test
+			LinkVoteChallengeService.setAppData( { items: [], userCheated: false }, true ); // reset app data
+			$httpBackend.expectGET( 'test/mock-data/items.json' ).respond( { posts: MockHelpers.getItemsUnsorted() } );
+			__AddCtrl.cheetah();
+			$httpBackend.flush();
+			__HomeCtrl = $controller( 'HomeCtrl', { $scope: __scope } ); // create controller right after setting up new data
+		} );
+		
+		it( 'should define a "links" property (hello world! test)', function() {
+			expect( __HomeCtrl.links ).toBeDefined();
 		} );
 
 		it( 'should sort array by votes count (and date if vote counts are identical)', function() {
@@ -57,20 +62,16 @@ describe( 'UNIT :: HomeCtrl', function() {
 		} );
 
 		it( 'should call sort method after upvoting an item', function() {
-			// previous tests filled app data, skip app data setting
-			var _items = LinkVoteChallengeService.getAppData().items;
 			spyOn( __HomeCtrl, 'sortItemsByVoteCount' );
 			__HomeCtrl.listOrder = 'not default'; // set listOrder to anything other than default ''
-			__HomeCtrl.upVote( _items[0], 0 );
+			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 );
 			expect( __HomeCtrl.sortItemsByVoteCount ).toHaveBeenCalled();
 		} );
 
 		it( 'should call sort method after downvoting an item', function() {
-			// previous tests filled app data, skip app data setting
-			var _items = LinkVoteChallengeService.getAppData().items;
 			spyOn( __HomeCtrl, 'sortItemsByVoteCount' );
 			__HomeCtrl.listOrder = 'not default'; // set listOrder to anything other than default ''
-			__HomeCtrl.downVote( _items[0], 0 );
+			__HomeCtrl.downVote( __HomeCtrl.links[0], 0 );
 			expect( __HomeCtrl.sortItemsByVoteCount ).toHaveBeenCalled();
 		} );
 
@@ -90,40 +91,16 @@ describe( 'UNIT :: HomeCtrl', function() {
 			expect( $rootScope.$emit ).toHaveBeenCalledWith( 'mso.showToaster', MockHelpers.getToasterEventData( 'mso.itemRemoved', _item ) );
 		} );
 
-	} );
-
-	describe( 'HomeCtrl :: Depends on Another Controller', function() {
-
-		var __AddCtrl;
-
-		beforeEach( function() {
-			angular.mock.inject( function() {
-				__AddCtrl = $controller( 'AddCtrl' );
-			} );
+		it( 'should increase votes count by 1', function() {
+			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 300
+			expect( __HomeCtrl.links[0].votes_count ).toEqual( 301 );
 		} );
 
-		beforeEach( function() {
-			LinkVoteChallengeService.setAppData( { items: [], userCheated: false }, true ); // reset app data to set item count to "0"
-			__AddCtrl.addLink();
-			$timeout.flush();
-		} );
-
-		it( 'should increase votes count by 1 (after resetting & adding a single item to app data)', function() {
-			__scope = $rootScope.$new(); // re-initialize scope
-			__HomeCtrl = $controller( 'HomeCtrl', { $scope: __scope } ); // re-initialize controller
-			expect( __HomeCtrl.links.length ).toEqual( 1 );
-			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 0
-			expect( __HomeCtrl.links[0].votes_count ).toEqual( 1 );
-		} );
-
-		it( 'should decrease votes count by 1 (after resetting & adding a single item to app data and upvoting this data)', function() {
-			__scope = $rootScope.$new(); // re-initialize scope
-			__HomeCtrl = $controller( 'HomeCtrl', { $scope: __scope } ); // re-initialize controller
-			expect( __HomeCtrl.links.length ).toEqual( 1 );
-			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 0 (1 after this)
-			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 1	(2 after this, override behaviour)
-			__HomeCtrl.downVote( __HomeCtrl.links[0], 0 ); // vote count: 1 again
-			expect( __HomeCtrl.links[0].votes_count ).toEqual( 1 );
+		it( 'should increase votes count by 2 and decrease votes count by 1', function() {
+			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 300 (301 after this)
+			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 301	(302 after this, override behaviour)
+			__HomeCtrl.downVote( __HomeCtrl.links[0], 0 ); // vote count: 301 again
+			expect( __HomeCtrl.links[0].votes_count ).toEqual( 301 );
 		} );
 
 	} );

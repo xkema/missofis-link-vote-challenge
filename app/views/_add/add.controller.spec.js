@@ -14,14 +14,6 @@ describe( 'UNIT :: AddCtrl', function() {
 		} );
 	} );
 
-	describe( 'AddCtrl :: Creation', function() {
-
-		it( 'should define a "formData" property (hello world! test)', function() {
-			expect( __AddCtrl.formData ).toBeDefined();
-		} );
-		
-	} );
-
 	describe( 'AddCtrl :: Behaviour', function() {
 
 		var LinkVoteChallengeService,
@@ -36,6 +28,10 @@ describe( 'UNIT :: AddCtrl', function() {
 				$rootScope = _$rootScope_;
 				$httpBackend = _$httpBackend_;
 			} );
+		} );
+
+		it( 'should define a "formData" property (hello world! test)', function() {
+			expect( __AddCtrl.formData ).toBeDefined();
 		} );
 
 		it( 'should add a single link', function() {
@@ -77,7 +73,7 @@ describe( 'UNIT :: AddCtrl', function() {
 			$httpBackend
 				.expectGET( 'test/mock-data/items.json' )
 				.respond( { posts: MockHelpers.getItemsUnsorted() } );
-			__AddCtrl.cheetah();
+			__AddCtrl.cheetah(); // re-fill app data
 			$httpBackend.flush();
 			var _items = LinkVoteChallengeService.getAppData().items;
 			expect( _items ).toEqual( MockHelpers.getItemsUnsorted() );
