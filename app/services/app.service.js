@@ -60,8 +60,8 @@
 			var _item = {
 
 				id: Math.ceil( Math.random() * Date.now() ),
-				name: item.linkName,
-				redirect_url: item.linkUrl,
+				name: item.name,
+				redirect_url: item.redirect_url,
 				created_at: Date.now(),
 				votes_count: 0,
 				last_voted_at: null,

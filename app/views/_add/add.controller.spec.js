@@ -39,7 +39,7 @@ describe( 'UNIT ::  Controller Test : AddCtrl', function() {
 		it( 'should add a single link', function() {
 			LinkVoteChallengeService.setAppData( { items: [], userCheated: false }, true ); // reset app data to set item count to "0"
 			__controller.addLink();
-			var _items = LinkVoteChallengeService.getAppData().items;
+			var _items = LinkVoteChallengeService.getAppData().items; // it should check updated item data which returns back from service (or service succes object, this is a no-service falsy check)
 			expect( _items.length ).toEqual( 1 );
 		} );
 
@@ -51,12 +51,13 @@ describe( 'UNIT ::  Controller Test : AddCtrl', function() {
 			expect( __controller.disableAdd ).toBe( false ); // re-stored by $timeout
 		} );
 
-		it( 'should fire "mso.showToaster" event and proper data for it to show link added info showing toaster', function() {
+		it( 'should fire "mso.showToaster" event and set proper data for it to show link added info message in toaster', function() {
 			spyOn( $rootScope, '$emit' );
 			__controller.formData = MockHelpers.getAddLinkFormData();
+			var _item = { name: __controller.formData.linkName, redirect_url: __controller.formData.linkUrl }; // @see mock-helpers.js
 			__controller.addLink();
 			$timeout.flush();
-			expect( $rootScope.$emit ).toHaveBeenCalledWith( 'mso.showToaster', MockHelpers.getToasterEventData( 'mso.itemAdded' ) );
+			expect( $rootScope.$emit ).toHaveBeenCalledWith( 'mso.showToaster', MockHelpers.getToasterEventData( 'mso.itemAdded', _item ) );
 		} );
 
 		it( 'should clear form after item addition', function() {

@@ -12,7 +12,8 @@ var MockHelpers = ( function() {
 		getItemsSortedByVotesCount: _getItemsSortedByVotesCount,
 		getItemsSortedByCreationDate: _getItemsSortedByCreationDate,
 		getAddLinkFormData: _getAddLinkFormData,
-		getToasterEventData: _getToasterEventData
+		getToasterEventData: _getToasterEventData,
+		getModalEventData: _getModalEventData
 
 	};
 
@@ -83,15 +84,32 @@ var MockHelpers = ( function() {
 	 * Returns data for toaster event
 	 * 
 	 * @param toastType
+	 * @param item
 	 */
-	function _getToasterEventData( toastType ) {
+	function _getToasterEventData( toastType, item ) {
 	
 		return {
 			toasterType: toastType,
-			targetItem: { item: {
-				name: _getAddLinkFormData().linkName,
-				redirect_url: _getAddLinkFormData().linkUrl
-			} }
+			targetItem: {
+				item: item
+			}
+		};
+	
+	}
+
+	/**
+	 * Returns data for modal event
+	 * 
+	 * @param targetAction
+	 */
+	function _getModalEventData( targetAction ) {
+
+		return {
+			targetAction: targetAction,
+			targetItem: {
+				item: _getSingleItem(),
+				index: 0
+			}
 		};
 	
 	}
