@@ -44,9 +44,6 @@
 		vm.getItems = _getItems;
 		vm.toggleExtras = _toggleExtras;
 
-		// internals
-		var _appData = null;
-
 		// initialize controller
 		_init();
 
@@ -89,7 +86,7 @@
 			// re-sort items if list is not ordered default order (by creation date)
 			if( '' !== vm.listOrder ) {
 				var isReversed = 'increasing' === vm.listOrder ? true : false;
-				vm.sortItemsByVoteCount( _appData.items, isReversed );
+				vm.sortItemsByVoteCount( vm.links, isReversed );
 			}
 
 		}
@@ -104,7 +101,7 @@
 			// re-sort items if list is not ordered default order (by creation date)
 			if( '' !== vm.listOrder ) {
 				var isReversed = 'increasing' === vm.listOrder ? true : false;
-				vm.sortItemsByVoteCount( _appData.items, isReversed );
+				vm.sortItemsByVoteCount( vm.links, isReversed );
 			}
 
 		}
@@ -159,13 +156,13 @@
 		function _changeOrder() {
 
 			if( '' === vm.listOrder ) {
-				_sortItemsByCreationDate( _appData.items, false );
+				vm.sortItemsByCreationDate( vm.links, false );
 			}
 			else if( 'decreasing' === vm.listOrder ) {
-				_sortItemsByVoteCount( _appData.items, false );
+				vm.sortItemsByVoteCount( vm.links, false );
 			}
 			else if( 'increasing' === vm.listOrder ) {
-				_sortItemsByVoteCount( _appData.items, true );
+				vm.sortItemsByVoteCount( vm.links, true );
 			}
 
 		}
@@ -193,7 +190,7 @@
 
 			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'HomeCtrl' );
 
-			_appData = _getAppData();
+			var _appData = _getAppData();
 
 			vm.links = _sortItemsByCreationDate( _appData.items, false );
 

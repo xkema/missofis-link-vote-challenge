@@ -103,6 +103,20 @@ describe( 'UNIT :: HomeCtrl', function() {
 			expect( __HomeCtrl.links[0].votes_count ).toEqual( 301 );
 		} );
 
+		it( 'should call sorting function with proper data based on "listOrder"', function() {
+			spyOn( __HomeCtrl, 'sortItemsByCreationDate' );
+			spyOn( __HomeCtrl, 'sortItemsByVoteCount' );
+			__HomeCtrl.listOrder = '';
+			__HomeCtrl.changeOrder();
+			expect( __HomeCtrl.sortItemsByCreationDate ).toHaveBeenCalledWith( __HomeCtrl.links, false );
+			__HomeCtrl.listOrder = 'decreasing';
+			__HomeCtrl.changeOrder();
+			expect( __HomeCtrl.sortItemsByVoteCount ).toHaveBeenCalledWith( __HomeCtrl.links, false );
+			__HomeCtrl.listOrder = 'increasing';
+			__HomeCtrl.changeOrder();
+			expect( __HomeCtrl.sortItemsByVoteCount ).toHaveBeenCalledWith( __HomeCtrl.links, true );
+		} );
+
 	} );
 
 } );
