@@ -117,6 +117,19 @@ describe( 'UNIT :: HomeCtrl', function() {
 			expect( __HomeCtrl.sortItemsByVoteCount ).toHaveBeenCalledWith( __HomeCtrl.links, true );
 		} );
 
+		it( 'should call remove item method $on "mso.removeItem" event', function() {
+			spyOn( __HomeCtrl, 'removeLink' );
+			$rootScope.$emit( 'mso.removeItem', {} );
+			expect( __HomeCtrl.removeLink ).toHaveBeenCalled();
+		} );
+
+		it( 'should call "getItems" method on links collection changes', function() {
+			spyOn( __HomeCtrl, 'getItems' );
+			__HomeCtrl.links.push( __HomeCtrl.links[0] ); // change links to invoke "$scope.$watchCollection"
+			__scope.$digest();
+			expect( __HomeCtrl.getItems ).toHaveBeenCalled();
+		} );
+
 	} );
 
 } );

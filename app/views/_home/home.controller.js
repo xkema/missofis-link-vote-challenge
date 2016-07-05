@@ -203,14 +203,14 @@
 
 			$scope.$watchCollection( 'vm.links', function() {
 
-				_getItems( vm.paginationData.currentPage );
+				vm.getItems( vm.paginationData.currentPage );
 
 			} );
 
 			// listen to modal events
 			$rootScope.$on( 'mso.removeItem', function( event, data ) {
 
-				_removeLink( data.item, data.index );
+				vm.removeLink( data.item, data.index );
 
 			} );
 
