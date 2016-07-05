@@ -1,4 +1,6 @@
-describe( 'UNIT ::  Controller Test : AddCtrl', function() {
+describe( 'UNIT :: AddCtrl', function() {
+
+	'use strict';
 
 	// MockHelpers is defined in the global scope and injected via karma.conf.js
 	// @see `mock-helpers.js` for mock data helpers
@@ -12,7 +14,7 @@ describe( 'UNIT ::  Controller Test : AddCtrl', function() {
 		} );
 	} );
 
-	describe( 'AddCtrl :: Controller Creation :', function() {
+	describe( 'AddCtrl :: Creation', function() {
 
 		it( 'should define a "formData" property (hello world! test)', function() {
 			expect( __AddCtrl.formData ).toBeDefined();
@@ -20,7 +22,7 @@ describe( 'UNIT ::  Controller Test : AddCtrl', function() {
 		
 	} );
 
-	describe( 'AddCtrl :: Controller Behaviour :', function() {
+	describe( 'AddCtrl :: Behaviour', function() {
 
 		var LinkVoteChallengeService,
 			$timeout,
