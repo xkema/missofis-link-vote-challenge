@@ -2,9 +2,6 @@
 
 
 
-
-
-
 // site styles
 html {
 
@@ -112,6 +109,83 @@ select {
 
 }
 
+// add link form
+.mso-add-link-form {
+
+	padding: $gap-instance * .5 0 0;
+	position: relative;
+	margin: 0 auto;
+	width: 75%;
+
+	input[type=text],
+	input[type=url], {
+
+		width: 100%;
+
+	}
+
+}
+
+// cheats holder
+.mso-cheat-holder {
+
+	width: 75%;
+	position: relative;
+	margin: 0 auto;
+	border-top: 1px solid $color-gray-light;
+	padding-top: $gap-instance;
+	padding-bottom: $gap-instance * .5;
+
+}
+
+// animations :: angular-animate
+@keyframes fadeOut {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translate3d(0, 100%, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.mso-modal-overlay,
+.mso-modal-content {
+
+	animation: fadeIn .15s ease-in;
+
+	&.ng-hide {
+
+		animation: fadeOut .15s ease-in;
+
+	}
+
+}
+
+.mso-toaster-content {
+
+	animation: fadeInUp .15s ease-out;
+
+	&.ng-hide {
+
+		animation: fadeOut .15s ease-out;
+
+	}
+
+}
+
 // component :: panel
 .mso-panel {
 
@@ -158,35 +232,6 @@ select {
 		// margin-bottom: $gap-instance;
 
 	}
-
-}
-
-// add link form
-.mso-add-link-form {
-
-	padding: $gap-instance * .5 0 0;
-	position: relative;
-	margin: 0 auto;
-	width: 75%;
-
-	input[type=text],
-	input[type=url], {
-
-		width: 100%;
-
-	}
-
-}
-
-// cheats holder
-.mso-cheat-holder {
-
-	width: 75%;
-	position: relative;
-	margin: 0 auto;
-	border-top: 1px solid $color-gray-light;
-	padding-top: $gap-instance;
-	padding-bottom: $gap-instance * .5;
 
 }
 

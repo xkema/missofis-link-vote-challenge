@@ -7,7 +7,8 @@
 
 	angular.module( 'com.missofis.linkvotechallenge', [
 
-		'ngRoute'
+		'ngRoute',
+		'ngAnimate'
 
 	] );
 

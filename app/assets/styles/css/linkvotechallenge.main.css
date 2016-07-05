@@ -57,6 +57,68 @@ select[disabled] {
   margin-bottom: 1rem;
 }
 
+.mso-add-link-form {
+  padding: 1rem 0 0;
+  position: relative;
+  margin: 0 auto;
+  width: 75%;
+}
+.mso-add-link-form input[type=text],
+.mso-add-link-form input[type=url] {
+  width: 100%;
+}
+
+.mso-cheat-holder {
+  width: 75%;
+  position: relative;
+  margin: 0 auto;
+  border-top: 1px solid #f4f4f4;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.mso-modal-overlay,
+.mso-modal-content {
+  animation: fadeIn .15s ease-in;
+}
+.mso-modal-overlay.ng-hide,
+.mso-modal-content.ng-hide {
+  animation: fadeOut .15s ease-in;
+}
+
+.mso-toaster-content {
+  animation: fadeInUp .15s ease-out;
+}
+.mso-toaster-content.ng-hide {
+  animation: fadeOut .15s ease-out;
+}
+
 .mso-panel {
   border: 1px solid #f4f4f4;
 }
@@ -77,26 +139,6 @@ select[disabled] {
 }
 .mso-panel .mso-no-links-info {
   margin-top: 2rem;
-}
-
-.mso-add-link-form {
-  padding: 1rem 0 0;
-  position: relative;
-  margin: 0 auto;
-  width: 75%;
-}
-.mso-add-link-form input[type=text],
-.mso-add-link-form input[type=url] {
-  width: 100%;
-}
-
-.mso-cheat-holder {
-  width: 75%;
-  position: relative;
-  margin: 0 auto;
-  border-top: 1px solid #f4f4f4;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
 }
 
 .mso-links-list {
