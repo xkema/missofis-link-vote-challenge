@@ -76,7 +76,7 @@
 
 			_setAppData( { items: _appData.items }, true );
 
-			return true;
+			return _item;
 
 		}
 
