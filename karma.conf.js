@@ -8,8 +8,9 @@ module.exports = function( config ) {
 		browsers: [ 'PhantomJS' ],
 		files: [
 			// vendor
-			'bower_components/angular/angular.js',
-			'bower_components/angular-route/angular-route.js',
+			'bower_components/angular/angular.min.js',
+			'bower_components/angular-route/angular-route.min.js',
+			'bower_components/angular-animate/angular-animate.min.js',
 			'node_modules/angular-mocks/angular-mocks.js',
 			// test helpers
 			'test/mock-helpers/mock-helpers.js',
