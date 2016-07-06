@@ -18,6 +18,7 @@ module.exports = function( config ) {
 			'app/core/app.module.js',
 			'app/core/app.config.js',
 			'app/services/*.js',
+			'app/common/_*/*.js',
 			'app/views/_*/*.js'
 		],
 		frameworks: [ 'jasmine' ],

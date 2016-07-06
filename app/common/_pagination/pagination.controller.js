@@ -24,9 +24,9 @@
 		----------------------------------------------------------------
 		*/
 
-		// controller bindables
+		// controller bindables 
+		// @see component definition for other bindables; "numItems", "itemsPerPage", "currentPage", "updatePageData"
 		vm.numPagesCalculated = 1;
-		// vm.currentPage = 1;
 		
 		// controller api
 		vm.updatePagination = _updatePagination;

@@ -1,5 +1,5 @@
 /**
- * Application toaster directive
+ * Application toaster component
  */
 (function () {
 

@@ -1,5 +1,5 @@
 /**
- * Application modal directive
+ * Application modal component
  */
 (function () {
 
