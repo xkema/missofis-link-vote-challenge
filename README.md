@@ -12,8 +12,8 @@ You'll also need [Ruby](https://www.ruby-lang.org/en/documentation/installation/
 * Clone or download repository [https://github.com/xkema/missofis-link-vote-challenge](https://github.com/xkema/missofis-link-vote-challenge)
 * Open a terminal screen and go to the repo folder root. (where Gruntfile.js resides)
 * Run `bower install` and `npm install` commands.
-* Run `grunt` command to preview application and run tests.
-* Run `grunt test` command to run tests only.
+* Run `grunt` command to preview application and run tests. ([http://localhost:3000](http://localhost:3000) in web browser)
+* Run `grunt test` command to run tests only. (watch terminal screen :)
 
 Notes
 ----
