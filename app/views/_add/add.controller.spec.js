@@ -34,6 +34,15 @@ describe( 'UNIT :: AddCtrl', function() {
 			expect( __AddCtrl.formData ).toBeDefined();
 		} );
 
+		it( 'should fire "mso.showToaster" event and set proper data for it to show link added info message in toaster', function() {
+			spyOn( $rootScope, '$broadcast' );
+			__AddCtrl.formData = MockHelpers.getAddLinkFormData();
+			var _item = { name: __AddCtrl.formData.linkName, redirect_url: __AddCtrl.formData.linkUrl }; // @see mock-helpers.js
+			__AddCtrl.addLink();
+			$timeout.flush();
+			expect( $rootScope.$broadcast ).toHaveBeenCalledWith( 'mso.showToaster', MockHelpers.getToasterEventData( 'mso.itemAdded', _item ) );
+		} );
+
 		it( 'should add a single link', function() {
 			var _formData = __AddCtrl.formData;
 			__AddCtrl.addLink();
@@ -49,15 +58,6 @@ describe( 'UNIT :: AddCtrl', function() {
 			expect( __AddCtrl.disableAdd ).toBe( true ); // addLink called
 			$timeout.flush();
 			expect( __AddCtrl.disableAdd ).toBe( false ); // re-stored by $timeout
-		} );
-
-		it( 'should fire "mso.showToaster" event and set proper data for it to show link added info message in toaster', function() {
-			spyOn( $rootScope, '$broadcast' );
-			__AddCtrl.formData = MockHelpers.getAddLinkFormData();
-			var _item = { name: __AddCtrl.formData.linkName, redirect_url: __AddCtrl.formData.linkUrl }; // @see mock-helpers.js
-			__AddCtrl.addLink();
-			$timeout.flush();
-			expect( $rootScope.$broadcast ).toHaveBeenCalledWith( 'mso.showToaster', MockHelpers.getToasterEventData( 'mso.itemAdded', _item ) );
 		} );
 
 		it( 'should clear form after item addition', function() {

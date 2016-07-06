@@ -46,10 +46,27 @@ describe( 'UNIT :: HomeCtrl', function() {
 			$httpBackend.flush();
 			__HomeCtrl = $controller( 'HomeCtrl', { $scope: __scope } ); // create controller right after setting up new data
 		} );
-		
+
 		it( 'should define a "links" property (hello world! test)', function() {
 			expect( __HomeCtrl.links ).toBeDefined();
 		} );
+
+		it( 'should sort items by creation date at startup', function() {
+			// home controller fed by beforeEach block above with MockHelpers.getItemsUnsorted()
+			expect( __HomeCtrl.links ).toEqual( MockHelpers.getItemsSortedByCreationDate() );
+		} );
+		
+		it( 'should increase votes count by 1', function() {
+			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 300
+			expect( __HomeCtrl.links[0].votes_count ).toEqual( 301 );
+		} );
+
+		it( 'should increase votes count by 2 and decrease votes count by 1', function() {
+			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 300 (301 after this)
+			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 301	(302 after this, override behaviour)
+			__HomeCtrl.downVote( __HomeCtrl.links[0], 0 ); // vote count: 301 again
+			expect( __HomeCtrl.links[0].votes_count ).toEqual( 301 );
+		} );		
 
 		it( 'should sort array by votes count (and date if vote counts are identical)', function() {
 			__HomeCtrl.sortItemsByVoteCount( _itemsUnsorted, false );
@@ -81,7 +98,13 @@ describe( 'UNIT :: HomeCtrl', function() {
 			expect( $rootScope.$broadcast ).toHaveBeenCalledWith( 'mso.openModal', MockHelpers.getModalEventData( 'mso.removeItem' ) );
 		} );
 
-		it( 'should remove item from app data and fire a "mso.showToaster" event with type of "mso.itemRemoved"', function() {
+		it( 'should call remove item method $on "mso.removeItem" event', function() {
+			spyOn( __HomeCtrl, 'removeLink' );
+			$rootScope.$broadcast( 'mso.removeItem', {} );
+			expect( __HomeCtrl.removeLink ).toHaveBeenCalled();
+		} );
+
+		it( 'should remove item from controller and fire a "mso.showToaster" event with type of "mso.itemRemoved"', function() {
 			var _numItems = __HomeCtrl.links.length;
 			var _item = __HomeCtrl.links[0];
 			spyOn( $rootScope, '$broadcast' );			
@@ -89,18 +112,6 @@ describe( 'UNIT :: HomeCtrl', function() {
 			$timeout.flush();			
 			expect( __HomeCtrl.links.length ).toBe( _numItems - 1 );
 			expect( $rootScope.$broadcast ).toHaveBeenCalledWith( 'mso.showToaster', MockHelpers.getToasterEventData( 'mso.itemRemoved', _item ) );
-		} );
-
-		it( 'should increase votes count by 1', function() {
-			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 300
-			expect( __HomeCtrl.links[0].votes_count ).toEqual( 301 );
-		} );
-
-		it( 'should increase votes count by 2 and decrease votes count by 1', function() {
-			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 300 (301 after this)
-			__HomeCtrl.upVote( __HomeCtrl.links[0], 0 ); // vote count: 301	(302 after this, override behaviour)
-			__HomeCtrl.downVote( __HomeCtrl.links[0], 0 ); // vote count: 301 again
-			expect( __HomeCtrl.links[0].votes_count ).toEqual( 301 );
 		} );
 
 		it( 'should call sorting function with proper data based on "listOrder"', function() {
@@ -115,13 +126,7 @@ describe( 'UNIT :: HomeCtrl', function() {
 			__HomeCtrl.listOrder = 'increasing';
 			__HomeCtrl.changeOrder();
 			expect( __HomeCtrl.sortItemsByVoteCount ).toHaveBeenCalledWith( __HomeCtrl.links, true );
-		} );
-
-		it( 'should call remove item method $on "mso.removeItem" event', function() {
-			spyOn( __HomeCtrl, 'removeLink' );
-			$rootScope.$broadcast( 'mso.removeItem', {} );
-			expect( __HomeCtrl.removeLink ).toHaveBeenCalled();
-		} );
+		} );		
 
 		it( 'should call "getItems" method on links collection changes', function() {
 			spyOn( __HomeCtrl, 'getItems' );
