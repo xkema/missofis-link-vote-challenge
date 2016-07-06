@@ -64,7 +64,7 @@
 			if( 'mso.removeItem' === _modalData.targetAction ) {
 
 				// @see home.controller.js
-				$rootScope.$emit( _modalData.targetAction, _modalData.targetItem );
+				$rootScope.$broadcast( _modalData.targetAction, _modalData.targetItem );
 
 			}
 
@@ -80,7 +80,7 @@
 			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'MsoLinkVoteModalCtrl' );
 
 			// listen to modal events
-			$rootScope.$on( 'mso.openModal', function( event, data ) {
+			$scope.$on( 'mso.openModal', function( event, data ) {
 
 				_modalData = data;
 

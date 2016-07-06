@@ -119,7 +119,7 @@
 			var _indexInOriginalArray = index + ( vm.paginationData.currentPage - 1 ) * vm.paginationData.itemsPerPage;
 
 			// @see modal.controller.js
-			$rootScope.$emit( 'mso.openModal', { targetAction: 'mso.removeItem', targetItem: { item: item, index: _indexInOriginalArray } } );
+			$rootScope.$broadcast( 'mso.openModal', { targetAction: 'mso.removeItem', targetItem: { item: item, index: _indexInOriginalArray } } );
 
 		}
 
@@ -144,7 +144,7 @@
 					vm.links.splice( index, 1 );
 
 					// @see toaster.controller.js
-					$rootScope.$emit( 'mso.showToaster', { toasterType: 'mso.itemRemoved', targetItem: { item: item } } );
+					$rootScope.$broadcast( 'mso.showToaster', { toasterType: 'mso.itemRemoved', targetItem: { item: item } } );
 
 				}
 
@@ -197,7 +197,7 @@
 			if( 0 === vm.links.length ) {
 
 				// @see toaster.controller.js
-				$rootScope.$emit( 'mso.showToaster', { toasterType: 'mso.simpleToast', message: 'No items to list, add some!' } );
+				$rootScope.$broadcast( 'mso.showToaster', { toasterType: 'mso.simpleToast', message: 'No items to list, add some!' } );
 
 			}
 
@@ -208,7 +208,7 @@
 			} );
 
 			// listen to modal events
-			$rootScope.$on( 'mso.removeItem', function( event, data ) {
+			$scope.$on( 'mso.removeItem', function( event, data ) {
 
 				vm.removeLink( data.item, data.index );
 

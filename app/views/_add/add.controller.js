@@ -9,12 +9,12 @@
 		.module( 'com.missofis.linkvotechallenge' )
 		.controller( 'AddCtrl', AddCtrl );
 
-	AddCtrl.$inject = [ '$log', 'LinkVoteChallengeService', '$location', '$rootScope', '$timeout' ];
+	AddCtrl.$inject = [ '$log', 'LinkVoteChallengeService', '$rootScope', '$timeout' ];
 
 	/**
 	 * Add controller
 	 */
-	function AddCtrl( $log, LinkVoteChallengeService, $location, $rootScope, $timeout ) {
+	function AddCtrl( $log, LinkVoteChallengeService, $rootScope, $timeout ) {
 
 		var vm = this;
 
@@ -71,7 +71,7 @@
 				if( _itemAdded ) {
 
 					// @see toaster.controller.js
-					$rootScope.$emit( 'mso.showToaster', { toasterType: 'mso.itemAdded', targetItem: { item: _item } } );
+					$rootScope.$broadcast( 'mso.showToaster', { toasterType: 'mso.itemAdded', targetItem: { item: _item } } );
 
 					vm.link = _itemAdded;
 
@@ -105,7 +105,7 @@
 						vm.disableAdd = false;
 
 						// @see toaster.controller.js
-						$rootScope.$emit( 'mso.showToaster', { toasterType: 'mso.simpleToast', message: 'You\'ve added <strong>25 items</strong> with some kind of poisonous elixir!' } );
+						$rootScope.$broadcast( 'mso.showToaster', { toasterType: 'mso.simpleToast', message: 'You\'ve added <strong>25 items</strong> with some kind of poisonous elixir!' } );
 
 					}, 1000 );
 					

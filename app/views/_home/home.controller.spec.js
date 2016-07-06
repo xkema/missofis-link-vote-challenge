@@ -76,19 +76,19 @@ describe( 'UNIT :: HomeCtrl', function() {
 		} );
 
 		it( 'should fire "mso.openModal" event and set proper data for it', function() {
-			spyOn( $rootScope, '$emit' );
+			spyOn( $rootScope, '$broadcast' );
 			__HomeCtrl.removeLinkPrelude( MockHelpers.getSingleItem(), 0 );
-			expect( $rootScope.$emit ).toHaveBeenCalledWith( 'mso.openModal', MockHelpers.getModalEventData( 'mso.removeItem' ) );
+			expect( $rootScope.$broadcast ).toHaveBeenCalledWith( 'mso.openModal', MockHelpers.getModalEventData( 'mso.removeItem' ) );
 		} );
 
 		it( 'should remove item from app data and fire a "mso.showToaster" event with type of "mso.itemRemoved"', function() {
 			var _numItems = __HomeCtrl.links.length;
 			var _item = __HomeCtrl.links[0];
-			spyOn( $rootScope, '$emit' );			
+			spyOn( $rootScope, '$broadcast' );			
 			__HomeCtrl.removeLink( _item, 0 ); // delete first item in links array
 			$timeout.flush();			
 			expect( __HomeCtrl.links.length ).toBe( _numItems - 1 );
-			expect( $rootScope.$emit ).toHaveBeenCalledWith( 'mso.showToaster', MockHelpers.getToasterEventData( 'mso.itemRemoved', _item ) );
+			expect( $rootScope.$broadcast ).toHaveBeenCalledWith( 'mso.showToaster', MockHelpers.getToasterEventData( 'mso.itemRemoved', _item ) );
 		} );
 
 		it( 'should increase votes count by 1', function() {
@@ -119,7 +119,7 @@ describe( 'UNIT :: HomeCtrl', function() {
 
 		it( 'should call remove item method $on "mso.removeItem" event', function() {
 			spyOn( __HomeCtrl, 'removeLink' );
-			$rootScope.$emit( 'mso.removeItem', {} );
+			$rootScope.$broadcast( 'mso.removeItem', {} );
 			expect( __HomeCtrl.removeLink ).toHaveBeenCalled();
 		} );
 

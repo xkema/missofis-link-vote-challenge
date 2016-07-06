@@ -9,12 +9,12 @@
 		.module( 'com.missofis.linkvotechallenge' )
 		.controller( 'MsoLinkVoteToasterCtrl', MsoLinkVoteToasterCtrl );
 
-	MsoLinkVoteToasterCtrl.$inject = [ '$log', '$scope', '$rootScope', '$timeout', '$sce' ];
+	MsoLinkVoteToasterCtrl.$inject = [ '$log', '$scope', '$timeout', '$sce' ];
 
 	/**
 	 * MsoLinkVoteToasterCtrl controller
 	 */
-	function MsoLinkVoteToasterCtrl( $log, $scope, $rootScope, $timeout, $sce ) {
+	function MsoLinkVoteToasterCtrl( $log, $scope, $timeout, $sce ) {
 
 		var vm = this;
 
@@ -51,7 +51,7 @@
 			$log.info( '$$____ :: CONTROLLER INITIALIZE', 'MsoLinkVoteToasterCtrl' );
 
 			// listen to modal events
-			$rootScope.$on( 'mso.showToaster', function( event, data ) {
+			$scope.$on( 'mso.showToaster', function( event, data ) {
 
 				var _previousMessage = vm.toasterMessage;
 

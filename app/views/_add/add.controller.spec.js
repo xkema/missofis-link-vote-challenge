@@ -52,12 +52,12 @@ describe( 'UNIT :: AddCtrl', function() {
 		} );
 
 		it( 'should fire "mso.showToaster" event and set proper data for it to show link added info message in toaster', function() {
-			spyOn( $rootScope, '$emit' );
+			spyOn( $rootScope, '$broadcast' );
 			__AddCtrl.formData = MockHelpers.getAddLinkFormData();
 			var _item = { name: __AddCtrl.formData.linkName, redirect_url: __AddCtrl.formData.linkUrl }; // @see mock-helpers.js
 			__AddCtrl.addLink();
 			$timeout.flush();
-			expect( $rootScope.$emit ).toHaveBeenCalledWith( 'mso.showToaster', MockHelpers.getToasterEventData( 'mso.itemAdded', _item ) );
+			expect( $rootScope.$broadcast ).toHaveBeenCalledWith( 'mso.showToaster', MockHelpers.getToasterEventData( 'mso.itemAdded', _item ) );
 		} );
 
 		it( 'should clear form after item addition', function() {
