@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row">
+		<div class="twelve columns">
+
+			<!-- panel instance -->
+			<div class="mso-panel">
+				<div class="mso-panel-header mso-cf">
+					<div class="mso-panel-title panel-title-full">
+						<h4>Submit New Link</h4>
+					</div>
+					<div class="mso-panel-intro">
+						<span>feed app data with adding items <strong>one by one</strong></span>
+						<br>
+						<a href="#!/" class="button mso-button-plain"><i class="fa fa-arrow-left" aria-hidden="true"></i> back to list</a>
+					</div>
+				</div>
+				<div class="mso-panel-content">
+					<form class="mso-add-link-form" ng-submit="vm.addLink()">
+						<div>
+							<label for="mso-link-name">Link Name:</label>
+							<input type="text" placeholder="e.g Alphabet" id="mso-link-name" ng-model="vm.formData.linkName" required>
+						</div>
+						<div>
+							<label for="mso-link-url">Link URL:</label>
+							<input type="url" placeholder="http://abc.xyz" id="mso-link-url" ng-model="vm.formData.linkUrl" required>
+						</div>
+						<div class="mso-cf">
+							<button type="submit" ng-disabled="vm.disableAdd" class="u-pull-right"><i class="fa fa-plus" aria-hidden="true"></i> add</button>
+						</div>
+					</form>
+				</div>
+				<div class="mso-panel-footer">
+					<div ng-if="!vm.isUserCheated" class="mso-cheat-holder text-center">
+						<span><strong>drink the elixir?</strong></span>
+						<p class="mso-push-bottom push-kindly"><small>cheaterz gonna cheat, cheers! button feeds the sessionStorage monkey with an <em>items.json</em> file for a single time.</small></p>
+						<button type="click" ng-disabled="vm.disableAdd" ng-click="vm.cheetah()"><i class="fa fa-flask" aria-hidden="true"></i> cheers!</button>
+					</div>
+				</div>
+			</div>			
+			<!-- end :: panel instance -->
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="com.missofis.linkvotechallenge" ng-strict-di>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>mso-link-vote-challenge</title>
+  <meta name="description" content="mso-link-vote-challenge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- webfonts -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  
+  <!-- main styles -->
+  <link rel="stylesheet" type="text/css" href="./main.css">
+
+  <!-- scripts top -->
+  <script src="./top.js"></script>
+</head>
+<body>
+
+  <!-- app main wrapper -->
+  <div id="mso-link-vote-wrapper">
+
+    <!-- app header -->
+    <header class="mso-link-vote-header mso-push-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="twelve columns">
+            <div class="mso-link-vote-logo">
+              <span>Link<strong>VOTE</strong> Challenge</span>
+            </div>
+            <nav class="mso-link-vote-nav">
+              <a href="#!/" title="Home" class="button mso-button-plain"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
+              <a href="#!/add" title="Submit a link" class="button mso-button-plain mso-submit-link"><i class="fa fa-plus" aria-hidden="true"></i> SUBMIT LINK</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>   
+
+    <!-- app views -->
+    <main class="mso-link-vote-content mso-push-bottom">
+      <div ng-view></div>     
+    </main>
+    
+    <!-- app header -->
+    <footer class="mso-link-vote-footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="twelve columns">
+            <span>Link<strong>VOTE</strong> Challenge - 2016</span>
+            <br>
+            <a href="https://github.com/xkema/missofis-link-vote-challenge" title="@see source on github">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  </div>
+
+  <!-- modal -->
+  <mso-link-vote-modal></mso-link-vote-modal>
+
+  <!-- toaster -->
+  <mso-link-vote-toaster></mso-link-vote-toaster>
+
+  <!-- scripts bottom -->
+  <script src="./bottom.js"></script>
+
+</body>
+</html>

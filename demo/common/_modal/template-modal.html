@@ -1,0 +1,18 @@
+<!-- modal overlay-->
+<div class="mso-modal-overlay" ng-show="vm_.modalOpen"></div>
+
+<!-- modal content -->
+<div class="mso-modal-content" ng-show="vm_.modalOpen">
+
+	<h3>Upppsie!</h3>
+
+	<p>u're about to remove "<strong>{{vm_.modalItem.name}}</strong>" completely!</p>
+	
+	<div class="u-pull-right">
+		<button class="mso-button-small-gap" ng-click="vm_.closeModal()"><i class="fa fa-times" aria-hidden="true"></i> cancel</button>
+		<button class="mso-button-small-gap" ng-click="vm_.doModalAction()"><i class="fa fa-trash" aria-hidden="true"></i> delete it!</button>
+	</div>
+
+</div>
+
+

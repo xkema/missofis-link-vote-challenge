@@ -85,7 +85,54 @@ module.exports = function( grunt ) {
 		----------------------------------------------------------------
 		*/
 
-		// no build tasks defined
+		// task :: @see https://www.npmjs.com/package/grunt-contrib-concat
+    ,concat: {
+      styles: {
+        src: [
+          './bower_components/font-awesome/css/font-awesome.min.css',
+          './bower_components/skeleton/css/normalize.css',
+          './bower_components/skeleton/css/skeleton.css',
+          './app/assets/styles/css/linkvotechallenge.main.css'
+        ],
+        dest: 'demo/main.css'
+      },
+      top: {
+        src: [
+          './bower_components/angular/angular.min.js',
+          './bower_components/angular-route/angular-route.min.js',
+          './bower_components/angular-animate/angular-animate.min.js'
+        ],
+        dest: 'demo/top.js'
+      },
+      bottom: {
+        src: [
+          './app/core/app.module.js',
+          './app/core/app.config.js',
+          './app/services/app.service.js',
+          './app/common/_pagination/pagination.controller.js',
+          './app/common/_pagination/pagination.component.js',
+          './app/common/_modal/modal.controller.js',
+          './app/common/_modal/modal.component.js',
+          './app/common/_toaster/toaster.controller.js',
+          './app/common/_toaster/toaster.component.js',
+          './app/views/_home/home.controller.js',
+          './app/views/_add/add.controller.js'
+        ],
+        dest: 'demo/bottom.js'
+      }
+    }
+    // task :: @see https://www.npmjs.com/package/grunt-contrib-uglify
+    ,uglify: {
+      all: {
+        options: {
+          mangle: false
+        },
+        files: {
+          './demo/top.js': './demo/top.js',
+          './demo/bottom.js': './demo/bottom.js'
+        }
+      }
+    }
 
 	} );
 
@@ -95,6 +142,8 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-karma' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	// load modules (build?)
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
 	// register "default" development task for grunt
 	grunt.registerTask( 'default', function() {
