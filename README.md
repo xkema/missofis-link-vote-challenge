@@ -2,6 +2,10 @@
 
 A simple AngularJS feed application.
 
+**Demo Link**:
+
+[https://xkema.github.io/missofis-link-vote-challenge/demo](https://xkema.github.io/missofis-link-vote-challenge/demo)
+
 ## Installation
 
 You need to install [Node.js](https://nodejs.org), [Bower](http://bower.io/#install-bower), [Grunt](http://gruntjs.com/getting-started#installing-the-cli) to follow the steps below.  
@@ -10,6 +14,7 @@ You'll also need [Ruby](https://www.ruby-lang.org/en/documentation/installation/
 * Clone or download repository [https://github.com/xkema/missofis-link-vote-challenge](https://github.com/xkema/missofis-link-vote-challenge)
 * Open a terminal screen and go to the repo folder root. (where Gruntfile.js resides)
 * Run `bower install` and `npm install` commands.
+  * use `sudo bower install --allow-root` command on MacOS if bower CLI throws an error
 * Run `grunt` command to preview application and run tests. ([http://localhost:3000](http://localhost:3000) in web browser)
 * Run `grunt test` command to run tests only. (watch terminal screen :)
 

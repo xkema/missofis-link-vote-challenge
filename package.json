@@ -9,18 +9,18 @@
   "author": "Kemal Yılmaz <kemalxyz@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "angular-mocks": "^1.5.7",
-    "grunt": "^1.0.1",
-    "grunt-browser-sync": "^2.2.0",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^3.0.1",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-karma": "^2.0.0",
-    "jasmine-core": "^2.4.1",
-    "karma": "^1.1.0",
-    "karma-jasmine": "^1.0.2",
-    "karma-mocha-reporter": "^2.0.4",
-    "karma-phantomjs-launcher": "^1.0.1"
+    "angular-mocks": "1.5.7",
+    "grunt": "1.0.1",
+    "grunt-browser-sync": "2.2.0",
+    "grunt-contrib-concat": "1.0.1",
+    "grunt-contrib-sass": "1.0.0",
+    "grunt-contrib-uglify": "3.0.1",
+    "grunt-contrib-watch": "1.0.0",
+    "grunt-karma": "2.0.0",
+    "jasmine-core": "2.4.1",
+    "karma": "1.1.0",
+    "karma-jasmine": "1.0.2",
+    "karma-mocha-reporter": "2.0.4",
+    "karma-phantomjs-launcher": "1.0.1"
   }
 }
